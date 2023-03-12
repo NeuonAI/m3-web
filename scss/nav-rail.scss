@@ -1,0 +1,112 @@
+@use "typography";
+
+.m3-nav-rail {
+  display: flex;
+  width: 80px;
+  background: var(--surface);
+  flex-direction: column;
+  overflow: hidden;
+  padding-block: 12px;
+  position: relative;
+}
+
+.m3-nav-rail-button {
+  display: flex;
+  height: 56px;
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  flex-direction: column;
+  padding: 0;
+  position: relative;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:any-link {
+    text-decoration: none;
+  }
+
+  &:enabled, &:any-link {
+    cursor: pointer;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  // Indicator
+  &::before, &::after {
+    display: block;
+    width: 56px;
+    height: 32px;
+    border-radius: 16px;
+    position: absolute;
+    content: "";
+  }
+
+  &:enabled:focus-visible::after,
+  &:any-link:focus-visible::after {
+    background: rgba(var(--rgb--on-surface-variant), var(--state-layer-focus));
+  }
+
+  &:enabled:hover::after,
+  &:any-link:hover::after {
+    background: rgba(var(--rgb--on-surface-variant), var(--state-layer-hover));
+  }
+
+  &:enabled:active::after,
+  &:any-link:active::after {
+    background: rgba(var(--rgb--on-surface-variant), var(--state-layer-pressed));
+  }
+
+  // Indicator, selected
+  &#{&}__selected::before {
+    background: var(--secondary-container);
+  }
+
+  &#{&}__selected:enabled:focus-visible::after,
+  &#{&}__selected:any-link:focus-visible::after {
+    background: rgba(var(--rgb--on-surface), var(--state-layer-focus));
+  }
+
+  &#{&}__selected:enabled:hover::after,
+  &#{&}__selected:any-link:hover::after {
+    background: rgba(var(--rgb--on-surface), var(--state-layer-hover));
+  }
+
+  &#{&}__selected:enabled:active::after,
+  &#{&}__selected:any-link:active::after {
+    background: rgba(var(--rgb--on-surface), var(--state-layer-pressed));
+  }
+
+  // Icon
+  & > &--icon {
+    color: var(--on-surface-variant);
+    font-size: 24px;
+    margin-block: 4px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &#{&}__selected > &--icon {
+    color: var(--on-secondary-container);
+  }
+
+  // Label
+  & > &--label {
+    color: var(--on-surface-variant);
+    padding-block: 4px;
+    position: relative;
+    z-index: 1;
+    @extend .m3-typo--label-medium;
+  }
+
+  &#{&}__selected > &--label {
+    color: var(--on-surface);
+  }
+
+  // Placeholders
+  &__selected {
+  }
+}

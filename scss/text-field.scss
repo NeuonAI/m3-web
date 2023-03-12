@@ -1,0 +1,52 @@
+@use "../../../assets/styles/m3/typography";
+
+.m3-text-field {
+  width: fit-content;
+  height: 56px;
+  border-radius: 4px;
+
+  & &--content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    outline: 1px solid var(--outline);
+    outline-offset: -1px;
+
+    &--icon {
+      color: var(--on-surface-variant);
+      user-select: none;
+
+      &:first-child {
+        margin-inline-start: 12px;
+      }
+
+      &:last-child {
+        margin-inline-end: 12px;
+      }
+    }
+
+    &--input {
+      margin-inline: 16px;
+      height: inherit;
+      background: transparent;
+      flex: 1;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      outline: none;
+      color: var(--on-surface);
+      @extend .m3-typo--body-large;
+    }
+  }
+
+  &:hover &--content {
+    outline-color: var(--on-surface);
+  }
+
+  &:focus-within &--content {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+  }
+}

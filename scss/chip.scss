@@ -1,0 +1,194 @@
+@use "typography";
+
+.m3-chip {
+  display: flex;
+  width: fit-content;
+  height: 48px;
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 24px;
+  padding: 0;
+  position: relative;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:any-link {
+    text-decoration: none;
+  }
+
+  &:enabled, &:any-link {
+    cursor: pointer;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &::before, &::after {
+    display: block;
+    height: 32px;
+    left: 0;
+    right: 0;
+    border-radius: 8px;
+    margin-block: 8px;
+    position: absolute;
+    content: "";
+  }
+
+  &::after {
+    outline: 1px solid var(--outline);
+    outline-offset: -1px;
+  }
+
+  &:disabled::before {
+    //background: rgba(var(--rgb--on-surface), 12%);
+  }
+
+  & > &--icon {
+    color: var(--primary);
+    font-size: 18px;
+    position: relative;
+    z-index: 1;
+
+    &:first-child {
+      margin-inline-start: auto;
+      padding-inline-start: 8px;
+    }
+
+    &:last-child {
+      margin-inline-end: auto;
+      padding-inline-end: 8px;
+    }
+  }
+
+  & > &--label {
+    color: var(--on-surface);
+    padding-inline: 8px;
+    position: relative;
+    z-index: 1;
+    @extend .m3-typo--label-large;
+
+    &:first-child {
+      margin-inline-start: auto;
+      padding-inline-start: 16px;
+    }
+
+    &:last-child {
+      margin-inline-end: auto;
+      padding-inline-end: 16px;
+    }
+  }
+
+  &:disabled > &--icon,
+  &:disabled > &--label {
+    color: rgba(var(--rgb--on-surface), 38%);
+  }
+
+  // Outlined
+  &:disabled::after {
+    outline-color: rgba(var(--rgb--outline), 12%);
+  }
+
+  &:enabled:focus-visible::after,
+  &:any-link:focus-visible::after {
+    background: rgba(var(--rgb--on-surface), var(--state-layer-focus));
+    outline-color: var(--on-surface);
+  }
+
+  &:enabled:hover::after,
+  &:any-link:hover::after {
+    background: rgba(var(--rgb--on-surface), var(--state-layer-hover));
+  }
+
+  &:enabled:active::after,
+  &:any-link:active::after {
+    background: rgba(var(--rgb--on-surface), var(--state-layer-pressed));
+  }
+
+  &:enabled > &--icon,
+  &:any-link > &--icon, {
+    color: var(--primary);
+  }
+
+  &:enabled > &--label,
+  &:any-link > &--label {
+    color: var(--on-surface);
+  }
+
+  // Filled-tonal
+  &#{&}__filled-tonal::after {
+    outline-width: 0;
+  }
+
+  &#{&}__filled-tonal:disabled::before {
+    background: rgba(var(--rgb--on-surface), 12%);
+  }
+
+  &#{&}__filled-tonal:enabled::before,
+  &#{&}__filled-tonal:any-link::before {
+    background: var(--secondary-container);
+  }
+
+  &#{&}__filled-tonal:enabled:focus-visible::after,
+  &#{&}__filled-tonal:any-link:focus-visible::after {
+    background: rgba(var(--rgb--on-secondary-container), var(--state-layer-focus));
+  }
+
+  &#{&}__filled-tonal:enabled:hover::after,
+  &#{&}__filled-tonal:any-link:hover::after {
+    background: rgba(var(--rgb--on-secondary-container), var(--state-layer-hover));
+  }
+
+  &#{&}__filled-tonal:enabled:active::after,
+  &#{&}__filled-tonal:any-link:active::after {
+    background: rgba(var(--rgb--on-secondary-container), var(--state-layer-pressed));
+  }
+
+  &#{&}__filled-tonal:enabled > &--icon,
+  &#{&}__filled-tonal:any-link > &--icon,
+  &#{&}__filled-tonal:enabled > &--label,
+  &#{&}__filled-tonal:any-link > &--label {
+    color: var(--on-secondary-container);
+  }
+
+  // Filled-error
+  &#{&}__filled-error::after {
+    outline-width: 0;
+  }
+
+  &#{&}__filled-error:disabled::before {
+    background: rgba(var(--rgb--on-surface), 12%);
+  }
+
+  &#{&}__filled-error:enabled::before,
+  &#{&}__filled-error:any-link::before {
+    background: var(--error-container);
+  }
+
+  &#{&}__filled-error:enabled:focus-visible::after,
+  &#{&}__filled-error:any-link:focus-visible::after {
+    background: rgba(var(--rgb--on-error-container), var(--state-layer-focus));
+  }
+
+  &#{&}__filled-error:enabled:hover::after,
+  &#{&}__filled-error:any-link:hover::after {
+    background: rgba(var(--rgb--on-error-container), var(--state-layer-hover));
+  }
+
+  &#{&}__filled-error:enabled:active::after,
+  &#{&}__filled-error:any-link:active::after {
+    background: rgba(var(--rgb--on-error-container), var(--state-layer-pressed));
+  }
+
+  &#{&}__filled-error:enabled > &--icon,
+  &#{&}__filled-error:any-link > &--icon,
+  &#{&}__filled-error:enabled > &--label,
+  &#{&}__filled-error:any-link > &--label {
+    color: var(--on-error-container);
+  }
+
+  // Placeholders
+  &__filled-tonal {
+  }
+}

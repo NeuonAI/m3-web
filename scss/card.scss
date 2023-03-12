@@ -1,0 +1,52 @@
+.m3 .m3-card,
+.m3 button.m3-card {
+  background: var(--surface);
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  text-align: unset;
+}
+
+.m3 .m3-card:link {
+  text-decoration: unset;
+}
+
+.m3 .m3-card.m3-card__filled {
+  background: var(--surface-variant);
+}
+
+.m3 .m3-card.m3-card__outlined {
+  outline: 1px solid var(--outline);
+  outline-offset: -1px;
+}
+
+.m3 .m3-card.m3-card__clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.m3 .m3-card.m3-card__clickable:hover {
+}
+
+.m3 .m3-card .m3-card--content {
+  border-radius: inherit;
+  color: var(--on-surface);
+  height: inherit;
+  width: inherit;
+}
+
+.m3 .m3-card.m3-card__filled .m3-card--content {
+  color: var(--on-surface-variant);
+}
+
+.m3 .m3-card.m3-card__clickable:focus .m3-card--content {
+  background: rgba(var(--rgb--on-surface), var(--state-layer-focus));
+}
+
+.m3 .m3-card.m3-card__clickable:hover .m3-card--content {
+  background: rgba(var(--rgb--on-surface), var(--state-layer-hover));
+}
+
+.m3 .m3-card.m3-card__filled.m3-card__clickable:hover .m3-card--content {
+  background: rgba(var(--rgb--on-surface-variant), var(--state-layer-hover));
+}

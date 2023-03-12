@@ -1,0 +1,95 @@
+@use "typography";
+
+.m3-radio-button-container {
+  display: flex;
+  align-items: center;
+  color: var(--on-surface);
+  padding-inline: 0 16px;
+  @extend .m3-typo--label-large;
+
+  &:has(.m3-radio-button:enabled) {
+    cursor: pointer;
+  }
+
+  &:has(.m3-radio-button:disabled) {
+    color: rgba(var(--rgb--on-surface), 38%);
+  }
+}
+
+.m3-radio-button {
+  display: block;
+  width: 48px;
+  height: 48px;
+  appearance: none;
+  margin: 0;
+  position: relative;
+
+  &:enabled {
+    cursor: pointer;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &::after {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    color: var(--on-surface-variant);
+    direction: ltr;
+    //noinspection CssNoGenericFontName
+    font-family: 'Material Symbols Rounded';
+    font-size: 20px;
+    font-style: normal;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 40px;
+    margin: 4px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    content: "radio_button_unchecked";
+  }
+
+  &:disabled::after {
+    color: rgba(var(--rgb--on-surface), 38%);
+  }
+
+  &:enabled:focus-visible::after {
+    background: rgba(var(--rgb--on-surface), var(--state-layer-focus));
+  }
+
+  &:enabled:hover::after {
+    background: rgba(var(--rgb--on-surface), var(--state-layer-hover));
+  }
+
+  &:enabled:active::after {
+    background: rgba(var(--rgb--on-surface), var(--state-layer-pressed));
+  }
+
+  // Checked
+  &:checked::after {
+    content: "radio_button_checked";
+  }
+
+  &:checked:enabled::after {
+    color: var(--primary);
+  }
+
+  &:checked:enabled:focus-visible::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-focus));
+  }
+
+  &:checked:enabled:hover::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-hover));
+  }
+
+  &:checked:enabled:active::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-pressed));
+  }
+}

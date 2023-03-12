@@ -1,0 +1,232 @@
+@use "typography";
+
+.m3-button {
+  display: flex;
+  width: fit-content;
+  height: 48px;
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 24px;
+  padding: 0;
+  position: relative;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:any-link {
+    text-decoration: none;
+  }
+
+  &:enabled, &:any-link {
+    cursor: pointer;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &::before, &::after {
+    display: block;
+    height: 40px;
+    left: 0;
+    right: 0;
+    border-radius: 20px;
+    margin-block: 4px;
+    position: absolute;
+    content: "";
+  }
+
+  &:disabled::before {
+    background: rgba(var(--rgb--on-surface), 12%);
+  }
+
+  & > &--icon {
+    font-size: 18px;
+    position: relative;
+    z-index: 1;
+  }
+
+  & > &--label {
+    position: relative;
+    z-index: 1;
+  }
+
+  & > &--icon:first-child {
+    margin-inline-start: auto;
+    padding-inline-start: 16px;
+  }
+
+  & > &--icon:last-child {
+    margin-inline-end: auto;
+    padding-inline-end: 16px;
+  }
+
+  & > &--label {
+    padding-inline: 8px;
+    @extend .m3-typo--label-large;
+  }
+
+  & > &--label:first-child {
+    margin-inline-start: auto;
+    padding-inline-start: 24px;
+  }
+
+  & > &--label:last-child {
+    margin-inline-end: auto;
+    padding-inline-end: 24px;
+  }
+
+  &:disabled > &--icon,
+  &:disabled > &--label {
+    color: rgba(var(--rgb--on-surface), 38%);
+  }
+
+  // Filled
+  &:enabled::before,
+  &:any-link::before {
+    background: var(--primary);
+  }
+
+  &:enabled:focus-visible::after,
+  &:any-link:focus-visible::after {
+    background: rgba(var(--rgb--on-primary), var(--state-layer-focus));
+  }
+
+  &:enabled:hover::after,
+  &:any-link:hover::after {
+    background: rgba(var(--rgb--on-primary), var(--state-layer-hover));
+  }
+
+  &:enabled:active::after,
+  &:any-link:active::after {
+    background: rgba(var(--rgb--on-primary), var(--state-layer-pressed));
+  }
+
+  &:enabled > &--icon,
+  &:any-link > &--icon,
+  &:enabled > &--label,
+  &:any-link > &--label {
+    color: var(--on-primary);
+  }
+
+  // Filled Tonal
+  &#{&}__filled-tonal:enabled::before,
+  &#{&}__filled-tonal:any-link::before {
+    background: var(--secondary-container);
+  }
+
+  &#{&}__filled-tonal:enabled:focus-visible::after,
+  &#{&}__filled-tonal:any-link:focus-visible::after {
+    background: rgba(var(--rgb--on-secondary-container), var(--state-layer-focus));
+  }
+
+  &#{&}__filled-tonal:enabled:hover::after,
+  &#{&}__filled-tonal:any-link:hover::after {
+    background: rgba(var(--rgb--on-secondary-container), var(--state-layer-hover));
+  }
+
+  &#{&}__filled-tonal:enabled:active::after,
+  &#{&}__filled-tonal:any-link:active::after {
+    background: rgba(var(--rgb--on-secondary-container), var(--state-layer-pressed));
+  }
+
+  &#{&}__filled-tonal:enabled > &--icon,
+  &#{&}__filled-tonal:any-link > &--icon,
+  &#{&}__filled-tonal:enabled > &--label,
+  &#{&}__filled-tonal:any-link > &--label {
+    color: var(--on-secondary-container);
+  }
+
+  // Outlined
+  &#{&}__outlined::before {
+    display: none;
+  }
+
+  &#{&}__outlined::after {
+    outline: 1px solid var(--outline);
+    outline-offset: -1px;
+  }
+
+  &#{&}__outlined:disabled::after {
+    outline-color: rgba(var(--rgb--outline), 12%);
+  }
+
+  &#{&}__outlined:enabled:focus-visible::after,
+  &#{&}__outlined:any-link:focus-visible::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-focus));
+    outline-color: var(--primary);
+  }
+
+  &#{&}__outlined:enabled:hover::after,
+  &#{&}__outlined:any-link:hover::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-hover));
+  }
+
+  &#{&}__outlined:enabled:active::after,
+  &#{&}__outlined:any-link:active::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-pressed));
+  }
+
+  &#{&}__outlined:enabled > &--icon,
+  &#{&}__outlined:any-link > &--icon,
+  &#{&}__outlined:enabled > &--label,
+  &#{&}__outlined:any-link > &--label {
+    color: var(--primary);
+  }
+
+  // Text
+  &#{&}__text::before {
+    display: none;
+  }
+
+  &#{&}__text:disabled::after {
+    outline-color: rgba(var(--rgb--outline), 12%);
+  }
+
+  &#{&}__text:enabled:focus-visible::after,
+  &#{&}__text:any-link:focus-visible::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-focus));
+    outline-color: var(--primary);
+  }
+
+  &#{&}__text:enabled:hover::after,
+  &#{&}__text:any-link:hover::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-hover));
+  }
+
+  &#{&}__text:enabled:active::after,
+  &#{&}__text:any-link:active::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-pressed));
+  }
+
+  &#{&}__text > &--icon:first-child {
+    padding-inline-start: 12px;
+  }
+
+  &#{&}__text > &--icon:last-child {
+    padding-inline-end: 12px;
+  }
+
+  &#{&}__text > &--label:first-child {
+    padding-inline-start: 16px;
+  }
+
+  &#{&}__text > &--label:last-child {
+    padding-inline-end: 16px;
+  }
+
+  &#{&}__text > &--label:only-child {
+    padding-inline: 12px;
+  }
+
+  &#{&}__text:enabled > &--icon,
+  &#{&}__text:any-link > &--icon,
+  &#{&}__text:enabled > &--label,
+  &#{&}__text:any-link > &--label {
+    color: var(--primary);
+  }
+
+  // Placeholders
+  &__filled-tonal, &__outlined, &__text {
+  }
+}

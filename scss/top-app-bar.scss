@@ -1,0 +1,53 @@
+@use "typography";
+
+.m3-top-app-bar {
+  display: flex;
+  height: 64px;
+  align-items: center;
+  background: var(--surface);
+  color: var(--on-surface);
+  user-select: none;
+
+  // Title
+  & > &--title {
+    display: -webkit-box;
+    flex: 1;
+    overflow: hidden;
+    padding-inline: 12px;
+    transition: max-width 100ms ease-in-out;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    @extend .m3-typo--title-large;
+
+    &:first-child {
+      padding-inline-start: 16px;
+    }
+
+    &:last-child {
+      padding-inline-end: 16px;
+    }
+  }
+
+  &:has(&--space) > &--title {
+    max-width: 260px;
+  }
+
+  &#{&}__with-rail:has(&--space) > &--title {
+    max-width: 256px;
+  }
+
+  // Space
+  & > &--space {
+    flex: 1;
+  }
+
+  // Navigation icon button
+  & > &--nav-icon {
+    margin-inline: 12px 0;
+    transition: margin-inline-start 100ms ease-in-out;
+  }
+
+  &#{&}__with-rail > &--nav-icon {
+    margin-inline: 16px 0;
+  }
+}

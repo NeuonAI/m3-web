@@ -1,0 +1,278 @@
+.m3-icon-button {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  position: relative;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:any-link {
+    text-decoration: none;
+  }
+
+  &:enabled, &:any-link {
+    cursor: pointer;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &::before, &::after {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 4px;
+    position: absolute;
+    content: "";
+  }
+
+  &::before {
+    display: none;
+  }
+
+  &:disabled::before {
+    background: rgba(var(--rgb--on-surface), 12%);
+  }
+
+  & > &--icon {
+    display: block;
+    font-size: 24px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  &:disabled > &--icon {
+    color: rgba(var(--rgb--on-surface), 38%);
+  }
+
+  // Standard
+  &:enabled:focus-visible::after,
+  &:any-link:focus-visible::after {
+    background: rgba(var(--rgb--on-surface-variant), var(--state-layer-focus));
+  }
+
+  &:enabled:hover::after,
+  &:any-link:hover::after {
+    background: rgba(var(--rgb--on-surface-variant), var(--state-layer-hover));
+  }
+
+  &:enabled:active::after,
+  &:any-link:active::after {
+    background: rgba(var(--rgb--on-surface-variant), var(--state-layer-pressed));
+  }
+
+  &:enabled > &--icon,
+  &:any-link > &--icon {
+    color: var(--on-surface-variant);
+  }
+
+  // Standard, selected
+  &#{&}__selected:enabled:focus-visible::after,
+  &#{&}__selected:any-link:focus-visible::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-focus));
+  }
+
+  &#{&}__selected:enabled:hover::after,
+  &#{&}__selected:any-link:hover::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-hover));
+  }
+
+  &#{&}__selected:enabled:active::after,
+  &#{&}__selected:any-link:active::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-pressed));
+  }
+
+  &#{&}__selected:enabled > &--icon,
+  &#{&}__selected:any-link > &--icon {
+    color: var(--primary);
+  }
+
+  // Filled
+  &#{&}__filled::before {
+    display: block;
+  }
+
+  &#{&}__filled:enabled::before,
+  &#{&}__filled:any-link::before {
+    background: var(--surface-variant);
+  }
+
+  &#{&}__filled:enabled:focus-visible::after,
+  &#{&}__filled:any-link:focus-visible::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-focus));
+  }
+
+  &#{&}__filled:enabled:hover::after,
+  &#{&}__filled:any-link:hover::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-hover));
+  }
+
+  &#{&}__filled:enabled:active::after,
+  &#{&}__filled:any-link:active::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-pressed));
+  }
+
+  &#{&}__filled:enabled > &--icon,
+  &#{&}__filled:any-link > &--icon {
+    color: var(--primary);
+  }
+
+  // Filled, selected
+  &#{&}__filled#{&}__selected:enabled::before,
+  &#{&}__filled#{&}__selected:any-link::before {
+    background: var(--primary);
+  }
+
+  &#{&}__filled#{&}__selected:enabled:focus-visible::after,
+  &#{&}__filled#{&}__selected:any-link:focus-visible::after {
+    background: rgba(var(--rgb--on-primary), var(--state-layer-focus));
+  }
+
+  &#{&}__filled#{&}__selected:enabled:hover::after,
+  &#{&}__filled#{&}__selected:any-link:hover::after {
+    background: rgba(var(--rgb--on-primary), var(--state-layer-hover));
+  }
+
+  &#{&}__filled#{&}__selected:enabled:active::after,
+  &#{&}__filled#{&}__selected:any-link:active::after {
+    background: rgba(var(--rgb--on-primary), var(--state-layer-pressed));
+  }
+
+  &#{&}__filled#{&}__selected:enabled > &--icon,
+  &#{&}__filled#{&}__selected:any-link > &--icon {
+    color: var(--on-primary);
+  }
+
+  // Filled Tonal
+  &#{&}__filled-tonal::before {
+    display: block;
+  }
+
+  &#{&}__filled-tonal:enabled::before,
+  &#{&}__filled-tonal:any-link::before {
+    background: var(--surface-variant);
+  }
+
+  &#{&}__filled-tonal:enabled:focus-visible::after,
+  &#{&}__filled-tonal:any-link:focus-visible::after {
+    background: rgba(var(--rgb--on-surface-variant), var(--state-layer-focus));
+  }
+
+  &#{&}__filled-tonal:enabled:hover::after,
+  &#{&}__filled-tonal:any-link:hover::after {
+    background: rgba(var(--rgb--on-surface-variant), var(--state-layer-hover));
+  }
+
+  &#{&}__filled-tonal:enabled:active::after,
+  &#{&}__filled-tonal:any-link:active::after {
+    background: rgba(var(--rgb--on-surface-variant), var(--state-layer-pressed));
+  }
+
+  &#{&}__filled-tonal:enabled > &--icon,
+  &#{&}__filled-tonal:any-link > &--icon {
+    color: var(--on-surface-variant);
+  }
+
+  // Filled Tonal, selected
+  &#{&}__filled-tonal#{&}__selected:enabled::before,
+  &#{&}__filled-tonal#{&}__selected:any-link::before {
+    background: var(--secondary-container);
+  }
+
+  &#{&}__filled-tonal#{&}__selected:enabled:focus-visible::after,
+  &#{&}__filled-tonal#{&}__selected:any-link:focus-visible::after {
+    background: rgba(var(--rgb--on-secondary-container), var(--state-layer-focus));
+  }
+
+  &#{&}__filled-tonal#{&}__selected:enabled:hover::after,
+  &#{&}__filled-tonal#{&}__selected:any-link:hover::after {
+    background: rgba(var(--rgb--on-secondary-container), var(--state-layer-hover));
+  }
+
+  &#{&}__filled-tonal#{&}__selected:enabled:active::after,
+  &#{&}__filled-tonal#{&}__selected:any-link:active::after {
+    background: rgba(var(--rgb--on-secondary-container), var(--state-layer-pressed));
+  }
+
+  &#{&}__filled-tonal#{&}__selected:enabled > &--icon,
+  &#{&}__filled-tonal#{&}__selected:any-link > &--icon {
+    color: var(--on-secondary-container);
+  }
+
+  // Outlined
+  &#{&}__outlined::after {
+    outline: 1px solid var(--outline);
+    outline-offset: -1px;
+  }
+
+  &#{&}__outlined:disabled::after {
+    outline-color: rgba(var(--rgb--outline), 12%);
+  }
+
+  &#{&}__outlined:enabled:focus-visible::after,
+  &#{&}__outlined:any-link:focus-visible::after {
+    background: rgba(var(--rgb--on-surface-variant), var(--state-layer-focus));
+  }
+
+  &#{&}__outlined:enabled:hover::after,
+  &#{&}__outlined:any-link:hover::after {
+    background: rgba(var(--rgb--on-surface-variant), var(--state-layer-hover));
+  }
+
+  &#{&}__outlined:enabled:active::after,
+  &#{&}__outlined:any-link:active::after {
+    background: rgba(var(--rgb--on-surface-variant), var(--state-layer-pressed));
+  }
+
+  &#{&}__outlined:enabled > &--icon,
+  &#{&}__outlined:any-link > &--icon {
+    color: var(--on-surface-variant);
+  }
+
+  // Outlined, selected
+  &#{&}__outlined#{&}__selected::before,
+  &#{&}__outlined#{&}__selected::before {
+    display: block;
+  }
+
+  &#{&}__outlined#{&}__selected::after,
+  &#{&}__outlined#{&}__selected::after {
+    outline: none;
+  }
+
+  &#{&}__outlined#{&}__selected:enabled::before,
+  &#{&}__outlined#{&}__selected:any-link::before {
+    background: var(--on-surface);
+  }
+
+  &#{&}__outlined#{&}__selected:enabled:focus-visible::after,
+  &#{&}__outlined#{&}__selected:any-link:focus-visible::after {
+    background: rgba(var(--rgb--surface), var(--state-layer-focus));
+  }
+
+  &#{&}__outlined#{&}__selected:enabled:hover::after,
+  &#{&}__outlined#{&}__selected:any-link:hover::after {
+    background: rgba(var(--rgb--surface), var(--state-layer-hover));
+  }
+
+  &#{&}__outlined#{&}__selected:enabled:active::after,
+  &#{&}__outlined#{&}__selected:any-link:active::after {
+    background: rgba(var(--rgb--surface), var(--state-layer-pressed));
+  }
+
+  &#{&}__outlined#{&}__selected:enabled > &--icon,
+  &#{&}__outlined#{&}__selected:any-link > &--icon {
+    color: var(--surface);
+  }
+
+  // Placeholders
+  &__filled, &__filled-tonal, &__outlined, &__selected {
+  }
+}

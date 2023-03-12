@@ -1,0 +1,162 @@
+.m3-switch {
+  display: flex;
+  width: 52px;
+  height: 48px;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  position: relative;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:enabled {
+    cursor: pointer;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  // Track
+  &::before {
+    display: block;
+    width: inherit;
+    height: 32px;
+    background: var(--surface-variant);
+    border-radius: 16px;
+    outline: 2px solid var(--outline);
+    outline-offset: -2px;
+    position: absolute;
+    content: "";
+  }
+
+  &:disabled::before {
+    background: rgba(var(--rgb--surface-variant), 12%);
+  }
+
+  // Track, selected
+  &#{&}__selected {
+    &::before {
+      background: var(--primary);
+      outline-width: 0;
+    }
+
+    &:disabled::before {
+      background: rgba(var(--rgb--on-surface), 12%);
+    }
+  }
+
+  // Thumb
+  & > &--thumb {
+    display: flex;
+    width: 28px;
+    height: 28px;
+    margin-inline: 2px;
+    position: relative;
+    transition: margin-inline-start 100ms ease-in-out;
+
+    &::before {
+      display: block;
+      width: 28px;
+      height: 28px;
+      background: var(--outline);
+      border-radius: 50%;
+      position: absolute;
+      transition: width 100ms ease-in-out, height 100ms ease-in-out, margin 100ms ease-in-out;
+      content: "";
+    }
+
+    &::after {
+      display: block;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      content: "";
+    }
+
+    &:empty::before {
+      width: 16px;
+      height: 16px;
+      margin: 6px;
+    }
+  }
+
+  &:disabled::before {
+    outline-color: rgba(var(--rgb--on-surface), 12%);
+  }
+
+  &:disabled > &--thumb {
+    &::before {
+      background: rgba(var(--rgb--on-surface), 38%);
+    }
+  }
+
+  &:enabled:focus-visible > &--thumb::after {
+    background: rgba(var(--rgb--outline), var(--state-layer-focus));
+  }
+
+  &:enabled:hover > &--thumb::after {
+    background: rgba(var(--rgb--outline), var(--state-layer-hover));
+  }
+
+  &:enabled:active > &--thumb::after {
+    background: rgba(var(--rgb--outline), var(--state-layer-pressed));
+  }
+
+  // Thumb, selected
+  &#{&}__selected > &--thumb {
+    margin-inline-start: 22px;
+
+    &::before {
+      background: var(--on-primary);
+    }
+  }
+
+  &#{&}__selected:disabled > &--thumb {
+    &::before {
+      background: var(--surface);
+    }
+  }
+
+  &#{&}__selected:enabled:focus-visible > &--thumb::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-focus));
+  }
+
+  &#{&}__selected:enabled:hover > &--thumb::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-hover));
+  }
+
+  &#{&}__selected:enabled:active > &--thumb::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-pressed));
+  }
+
+  // Icon
+  & > &--thumb > &--thumb--icon {
+    color: var(--surface-variant);
+    font-size: 16px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  &:disabled > &--thumb > &--thumb--icon {
+    color: rgba(var(--rgb--surface-variant), 38%);
+  }
+
+  // Icon, selected
+  &#{&}__selected > &--thumb > &--thumb--icon {
+    color: var(--on-primary-container);
+  }
+
+  &#{&}__selected:disabled > &--thumb > &--thumb--icon {
+    color: rgba(var(--rgb--on-surface), 38%);
+  }
+
+  // Placeholders
+  &__selected {
+  }
+}

@@ -1,0 +1,16 @@
+.m3-divider, hr.m3-divider {
+  background: var(--outline);
+  border: none;
+  display: block;
+  height: 1px;
+  margin-block: 0;
+  margin-inline: 0;
+  overflow: hidden;
+  unicode-bidi: isolate;
+  width: auto;
+}
+
+.m3-divider.m3-divider__vertical {
+  height: auto;
+  width: 1px;
+}

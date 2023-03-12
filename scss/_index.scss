@@ -1,0 +1,190 @@
+@mixin m3-dark {
+  color-scheme: dark;
+
+  // Primary
+  --primary: #adc6ff;
+  --on-primary: #002e69;
+  --primary-container: #004493;
+  --on-primary-container: #d8e2ff;
+
+  // Primary RGB
+  --rgb--primary: 173, 198, 255;
+  --rgb--on-primary: 0, 46, 105;
+  --rgb--primary-container: 0, 68, 147;
+  --rgb--on-primary-container: 216, 226, 255;
+
+  // Secondary
+  --secondary: #bfc6dc;
+  --on-secondary: #293041;
+  --secondary-container: #3f4759;
+  --on-secondary-container: #dbe2f9;
+
+  // Secondary RGB
+  --rgb--secondary: 191, 198, 220;
+  --rgb--on-secondary: 41, 48, 65;
+  --rgb--secondary-container: 63, 71, 89;
+  --rgb--on-secondary-container: 219, 226, 249;
+
+  // Tertiary
+  --tertiary: #debcdf;
+  --on-tertiary: #402843;
+  --tertiary-container: #583e5b;
+  --on-tertiary-container: #fbd7fc;
+
+  // Tertiary RGB
+  --rgb--tertiary: 222, 188, 223;
+  --rgb--on-tertiary: 64, 40, 67;
+  --rgb--tertiary-container: 88, 62, 91;
+  --rgb--on-tertiary-container: 251, 215, 252;
+
+  // Error
+  --error: #ffb4ab;
+  --on-error: #690005;
+  --error-container: #93000a;
+  --on-error-container: #ffdad6;
+
+  // Error RGB
+  --rgb--error: 255, 180, 171;
+  --rgb--on-error: 105, 0, 5;
+  --rgb--error-container: 147, 0, 10;
+  --rgb--on-error-container: 255, 218, 214;
+
+  // Background
+  --background: #1b1b1f;
+  --on-background: #e3e2e6;
+
+  // Background RGB
+  --rgb--background: 27, 27, 31;
+  --rgb--on-background: 227, 226, 230;
+
+  // Surface
+  --surface: #1b1b1f;
+  --on-surface: #e3e2e6;
+  --surface-variant: #44474f;
+  --on-surface-variant: #c4c6d0;
+
+  // Surface RGB
+  --rgb--surface: 27, 27, 31;
+  --rgb--on-surface: 227, 226, 230;
+  --rgb--surface-variant: 68, 71, 79;
+  --rgb--on-surface-variant: 196, 198, 208;
+
+  // Outline
+  --outline: #8e9099;
+
+  // Outline RGB
+  --rgb--outline: 142, 144, 153;
+}
+
+@mixin m3-light {
+  color-scheme: light;
+
+  // Primary
+  --primary: #005bc1;
+  --on-primary: #ffffff;
+  --primary-container: #d8e2ff;
+  --on-primary-container: #001a41;
+
+  // Primary RGB
+  --rgb--primary: 0, 91, 193;
+  --rgb--on-primary: 255, 255, 255;
+  --rgb--primary-container: 216, 226, 255;
+  --rgb--on-primary-container: 0, 26, 65;
+
+  // Secondary
+  --secondary: #565e71;
+  --on-secondary: #ffffff;
+  --secondary-container: #dbe2f9;
+  --on-secondary-container: #141b2c;
+
+  // Secondary RGB
+  --rgb--secondary: 86, 94, 113;
+  --rgb--on-secondary: 255, 255, 255;
+  --rgb--secondary-container: 219, 226, 249;
+  --rgb--on-secondary-container: 20, 27, 44;
+
+  // Tertiary
+  --tertiary: #715573;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #fbd7fc;
+  --on-tertiary-container: #29132d;
+
+  // Tertiary RGB
+  --rgb--tertiary: 113, 85, 115;
+  --rgb--on-tertiary: 255, 255, 255;
+  --rgb--tertiary-container: 251, 215, 252;
+  --rgb--on-tertiary-container: 41, 19, 45;
+
+  // Error
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #410002;
+
+  // Error RGB
+  --rgb--error: 186, 26, 26;
+  --rgb--on-error: 255, 255, 255;
+  --rgb--error-container: 255, 218, 214;
+  --rgb--on-error-container: 65, 0, 2;
+
+  // Background
+  --background: #fefbff;
+  --on-background: #1b1b1f;
+
+  // Background RGB
+  --rgb--background: 254, 251, 255;
+  --rgb--on-background: 27, 27, 31;
+
+  // Surface
+  --surface: #fefbff;
+  --on-surface: #1b1b1f;
+  --surface-variant: #e1e2ec;
+  --on-surface-variant: #44474f;
+
+  // Surface RGB
+  --rgb--surface: 254, 251, 255;
+  --rgb--on-surface: 27, 27, 31;
+  --rgb--surface-variant: 225, 226, 236;
+  --rgb--on-surface-variant: 68, 71, 79;
+
+  // Outline
+  --outline: #74777f;
+
+  // Outline RGB
+  --rgb--outline: 116, 119, 127;
+
+  // State layer opacities
+  --state-layer-dragged: 16%;
+  --state-layer-focus: 12%;
+  --state-layer-hover: 8%;
+  --state-layer-pressed: 12%;
+
+  --button-outline-disabled: 12%;
+  --button-content-disabled: 38%;
+  --text-highlight-opacity: 18%;
+  --selection-opacity: 18%;
+}
+
+.m3 {
+  @include m3-light;
+}
+
+.m3.m3__dark {
+  @include m3-dark;
+}
+
+.m3.m3__light {
+  @include m3-light;
+}
+
+@media (prefers-color-scheme: light) {
+  .m3:not(.m3__dark) {
+    @include m3-light;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .m3:not(.m3__light) {
+    @include m3-dark;
+  }
+}

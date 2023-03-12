@@ -1,0 +1,121 @@
+@use "typography";
+
+.m3-checkbox-container {
+  display: flex;
+  align-items: center;
+  color: var(--on-surface);
+  padding-inline: 0 16px;
+  @extend .m3-typo--label-large;
+
+  &:has(.m3-checkbox:enabled) {
+    cursor: pointer;
+  }
+
+  &:has(.m3-checkbox:disabled) {
+    color: rgba(var(--rgb--on-surface), 38%);
+  }
+}
+
+.m3-checkbox {
+  display: block;
+  width: 48px;
+  height: 48px;
+  appearance: none;
+  margin: 0;
+  position: relative;
+
+  &:enabled {
+    cursor: pointer;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &::before {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    margin: 15px;
+    outline: 2px solid var(--on-surface);
+    outline-offset: -2px;
+    position: relative;
+    content: "";
+  }
+
+  &::after {
+    display: block;
+    width: 40px;
+    height: 40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border-radius: 20px;
+    direction: ltr;
+    //noinspection CssNoGenericFontName
+    font-family: 'Material Symbols Rounded';
+    font-size: 18px;
+    font-style: normal;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 18;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 40px;
+    margin: 4px;
+    position: absolute;
+    text-align: center;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    content: "";
+  }
+
+  &:enabled:focus-visible::after {
+    background: rgba(var(--rgb--on-surface), var(--state-layer-focus));
+  }
+
+  &:enabled:hover::after {
+    background: rgba(var(--rgb--on-surface), var(--state-layer-hover));
+  }
+
+  &:enabled:active::after {
+    background: rgba(var(--rgb--on-surface), var(--state-layer-pressed));
+  }
+
+  &:disabled::before {
+    outline-color: rgba(var(--rgb--on-surface), 38%);
+  }
+
+  // Checked
+  &:checked::before {
+    background: var(--primary);
+    outline-width: 0;
+  }
+
+  &:checked::after {
+    color: var(--on-primary);
+    content: "check";
+  }
+
+  &:checked:enabled:focus-visible::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-focus));
+  }
+
+  &:checked:enabled:hover::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-hover));
+  }
+
+  &:checked:enabled:active::after {
+    background: rgba(var(--rgb--primary), var(--state-layer-pressed));
+  }
+
+  // Checked, disabled
+  &:checked:disabled::before {
+    background: rgba(var(--rgb--on-surface), 38%);
+  }
+
+  &:checked:disabled::after {
+    color: var(--surface);
+  }
+}

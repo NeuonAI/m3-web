@@ -1,0 +1,22 @@
+.mat-mdc-menu-panel.m3__menu {
+  background: transparent;
+  border-radius: 12px;
+  width: 240px;
+
+  &#{&} > .mat-mdc-menu-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.m3-menu {
+  background: var(--surface);
+  color: var(--on-surface);
+  display: flex;
+  flex-direction: column;
+}
