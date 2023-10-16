@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,600&display=swap"
+      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+</head>
+<body class="m3 m3-typo" style="display: flex; background: var(--m3--surface); flex-direction: column; margin: 0">
+<div class="section">
+  <span class="m3-typo--title-large">Common button</span>
+  <div style="display: flex; gap: 0 8px">
+    <button class="m3-button">
+      <span class="m3-button--label">Tap</span>
+    </button>
+    <button class="m3-button">
+      <span class="m3-button--icon m3-sym">touch_app</span>
+      <span class="m3-button--label">Tap</span>
+      <span class="m3-button--icon m3-sym">touch_app</span>
+    </button>
+    <button class="m3-button m3-button__filled-tonal">
+      <span class="m3-button--label">Tap</span>
+    </button>
+    <button class="m3-button m3-button__filled-tonal">
+      <span class="m3-button--icon m3-sym">touch_app</span>
+      <span class="m3-button--label">Tap</span>
+    </button>
+    <button class="m3-button m3-button__outlined">
+      <span class="m3-button--label">Tap</span>
+    </button>
+    <button class="m3-button m3-button__outlined">
+      <span class="m3-button--icon m3-sym">touch_app</span>
+      <span class="m3-button--label">Tap</span>
+    </button>
+    <button class="m3-button m3-button__text">
+      <span class="m3-button--label">Tap</span>
+    </button>
+    <button class="m3-button m3-button__text">
+      <span class="m3-button--icon m3-sym">touch_app</span>
+      <span class="m3-button--label">Tap</span>
+    </button>
+  </div>
+  <div style="display: flex; gap: 0 8px">
+    <button class="m3-button" disabled>
+      <span class="m3-button--label">Tap</span>
+    </button>
+    <button class="m3-button" disabled>
+      <span class="m3-button--icon m3-sym">touch_app</span>
+      <span class="m3-button--label">Tap</span>
+    </button>
+    <button class="m3-button m3-button__filled-tonal" disabled>
+      <span class="m3-button--label">Tap</span>
+    </button>
+    <button class="m3-button m3-button__filled-tonal" disabled>
+      <span class="m3-button--icon m3-sym">touch_app</span>
+      <span class="m3-button--label">Tap</span>
+    </button>
+    <button class="m3-button m3-button__outlined" disabled>
+      <span class="m3-button--label">Tap</span>
+    </button>
+    <button class="m3-button m3-button__outlined" disabled>
+      <span class="m3-button--icon m3-sym">touch_app</span>
+      <span class="m3-button--label">Tap</span>
+    </button>
+    <button class="m3-button m3-button__text" disabled>
+      <span class="m3-button--label">Tap</span>
+    </button>
+    <button class="m3-button m3-button__text" disabled>
+      <span class="m3-button--icon m3-sym">touch_app</span>
+      <span class="m3-button--label">Tap</span>
+    </button>
+  </div>
+  <div style="display: flex; gap: 0 8px">
+    <a class="m3-button" href="/">
+      <span class="m3-button--label">Click</span>
+    </a>
+    <a class="m3-button" href="/">
+      <span class="m3-button--icon m3-sym">touch_app</span>
+      <span class="m3-button--label">Click</span>
+    </a>
+  </div>
+</div>
+<div class="section">
+  <span class="m3-typo--title-large">Switch!</span>
+  <div id="switches1" style="display: flex; align-items: center; gap: 0 8px">
+    <button class="m3-switch" onclick="toggleSwitch()">
+      <span class="m3-switch--handle"></span>
+    </button>
+    <button class="m3-switch" onclick="toggleSwitch()">
+      <span class="m3-switch--handle"></span>
+      <span class="m3-switch--icon m3-sym">check</span>
+    </button>
+  </div>
+  <div id="switches2" style="display: flex; align-items: center; gap: 0 8px">
+    <button class="m3-switch" onclick="toggleSwitch()" disabled>
+      <span class="m3-switch--handle"></span>
+    </button>
+    <button class="m3-switch" onclick="toggleSwitch()" disabled>
+      <span class="m3-switch--handle"></span>
+      <span class="m3-switch--icon m3-sym">check</span>
+    </button>
+  </div>
+</div>
+<script>
+    function toggleChildrenClass(parentId, className) {
+        const children = document.getElementById(parentId).children;
+        for (let i = 0; i < children.length; i++) {
+            children[i].classList.toggle(className);
+        }
+    }
+
+    function toggleSwitch() {
+        toggleChildrenClass("switches1", "m3-switch__selected");
+        toggleChildrenClass("switches2", "m3-switch__selected");
+    }
+</script>
+</body>
+</html>

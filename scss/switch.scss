@@ -1,0 +1,209 @@
+// Angular 16
+$component-name: 'm3-switch';
+$component-class: '.' + $component-name;
+
+button#{$component-class} {
+  display: flex;
+  position: relative;
+  width: 52px;
+  height: 48px;
+  min-width: 52px;
+  min-height: 48px;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  padding: 0;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:enabled {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  // track
+  &::before {
+    display: block;
+    position: absolute;
+    width: inherit;
+    height: 32px;
+    align-self: center;
+    background: var(--m3--surface-container-highest);
+    border-radius: 16px;
+    content: "";
+    outline: 2px solid var(--m3--outline);
+    outline-offset: -2px;
+    transition: background-color 100ms var(--m3--easing-emphasized-decelerate),
+    outline-color 100ms var(--m3--easing-emphasized-decelerate);
+  }
+
+  &:disabled::before {
+    background: rgba(var(--m3--surface-container-highest--rgb), 12%);
+    outline-color: rgba(var(--m3--on-surface--rgb), 12%);
+  }
+
+  &#{$component-class}__selected::before {
+    background: var(--m3--primary);
+    outline-color: transparent;
+  }
+
+  &#{$component-class}__selected:disabled::before {
+    background: rgba(var(--m3--on-surface--rgb), 12%);
+    outline-color: transparent;
+  }
+
+  // state layer
+  &::after {
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    align-self: center;
+    border-radius: 50%;
+    content: "";
+    margin-inline: -4px 0;
+    transition: margin-left 100ms var(--m3--easing-emphasized-decelerate),
+    background-color 50ms var(--m3--easing-emphasized-accelerate);
+    z-index: 1;
+  }
+
+  &:enabled:focus-visible::after {
+    background-color: rgba(var(--m3--on-surface--rgb), var(--m3--opacity-on-focus));
+  }
+
+  &:enabled:hover::after {
+    background-color: rgba(var(--m3--on-surface--rgb), var(--m3--opacity-on-hover));
+  }
+
+  &:enabled:active::after {
+    background-color: rgba(var(--m3--on-surface--rgb), var(--m3--opacity-on-press));
+  }
+
+  &#{$component-class}__selected::after {
+    margin-inline-start: 15px;
+  }
+
+  &#{$component-class}__selected:enabled:focus-visible::after {
+    background-color: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-focus));
+  }
+
+  &#{$component-class}__selected:enabled:hover::after {
+    background-color: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-hover));
+  }
+
+  &#{$component-class}__selected:enabled:active::after {
+    background-color: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-press));
+  }
+
+  // handle
+  & > #{$component-class}--handle {
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    align-self: center;
+    background: var(--m3--outline);
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 20%) 0 2px 1px -1px,
+    rgba(0, 0, 0, 14%) 0 1px 1px 0,
+    rgba(0, 0, 0, 12%) 0 1px 3px 0;
+    content: "";
+    margin-inline: 8px 0;
+    transition: margin-left 100ms var(--m3--easing-emphasized-decelerate),
+    margin-right 100ms var(--m3--easing-emphasized-decelerate),
+    width 100ms var(--m3--easing-emphasized-decelerate),
+    height 100ms var(--m3--easing-emphasized-decelerate),
+    background-color 100ms var(--m3--easing-emphasized-decelerate);
+  }
+
+  &#{$component-class}__persistent-icon > #{$component-class}--handle {
+    width: 24px;
+    height: 24px;
+    margin-inline: 4px 0;
+
+    &:only-child {
+      width: 16px;
+      height: 16px;
+      margin-inline-start: 8px;
+    }
+  }
+
+  &:enabled:hover > #{$component-class}--handle {
+    background: var(--m3--on-surface-variant);
+  }
+
+  &:enabled:active > #{$component-class}--handle {
+    width: 28px;
+    height: 28px;
+    margin-inline-start: 2px;
+  }
+
+  &:disabled > #{$component-class}--handle {
+    background: rgba(var(--m3--on-surface--rgb), 38%);
+    box-shadow: none;
+  }
+
+  &#{$component-class}__selected > #{$component-class}--handle {
+    width: 24px;
+    height: 24px;
+    background: var(--m3--on-primary);
+    margin-inline-start: 24px;
+  }
+
+  &#{$component-class}__selected:enabled:hover > #{$component-class}--handle {
+    background: var(--m3--primary-container);
+  }
+
+  &#{$component-class}__selected:enabled:active > #{$component-class}--handle {
+    width: 28px;
+    height: 28px;
+    margin-inline-start: 22px;
+  }
+
+  &#{$component-class}__selected:disabled > #{$component-class}--handle {
+    background: var(--m3--surface);
+  }
+
+  // icon
+  & > #{$component-class}--icon {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    max-width: 16px;
+    max-height: 16px;
+    align-self: center;
+    color: transparent;
+    font-size: 16px;
+    margin-inline: 8px 0;
+    transition: margin-left 100ms var(--m3--easing-emphasized-decelerate),
+    margin-right 100ms var(--m3--easing-emphasized-decelerate),
+    color 100ms var(--m3--easing-emphasized-decelerate);
+    z-index: 2;
+  }
+
+  &#{$component-class}__persistent-icon > #{$component-class}--icon {
+    color: var(--m3--surface-container-highest);
+  }
+
+  &#{$component-class}__persistent-icon:disabled > #{$component-class}--icon {
+    color: rgba(var(--m3--surface-container-highest--rgb), 38%);
+  }
+
+  &#{$component-class}__selected > #{$component-class}--icon {
+    color: var(--m3--on-primary-container);
+    margin-inline-start: 28px;
+  }
+
+  &#{$component-class}__selected:disabled > #{$component-class}--icon {
+    color: rgba(var(--m3--on-surface--rgb), 38%);
+  }
+
+  // placeholders
+  &__selected, &__persistent-icon {
+  }
+}

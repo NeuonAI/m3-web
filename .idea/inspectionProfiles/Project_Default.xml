@@ -1,0 +1,13 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="CssBrowserCompatibilityForProperties" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myChromeVersion" value="94" />
+      <option name="myEdgeVersion" value="94" />
+      <option name="myFirefoxVersion" value="88" />
+      <option name="myCheckIE" value="false" />
+      <option name="myOperaVersion" value="80" />
+      <option name="mySafariVersion" value="17" />
+    </inspection_tool>
+  </profile>
+</component>

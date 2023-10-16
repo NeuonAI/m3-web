@@ -1,0 +1,295 @@
+@use "typography" as typo;
+
+$component-name: 'm3-button';
+$component-class: '.' + $component-name;
+
+a.#{$component-name}:any-link,
+button.#{$component-name} {
+  display: flex;
+  position: relative;
+  width: fit-content;
+  min-width: 48px;
+  min-height: 48px;
+  appearance: none;
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  user-select: none;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &::before, &::after {
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 40px;
+    align-self: center;
+    border-radius: 20px;
+    content: "";
+    transition: background-color 50ms var(--m3--easing-emphasized-accelerate);
+  }
+
+  // background
+  &::before {
+    background: var(--m3--primary);
+  }
+
+  &:hover::before {
+    box-shadow: rgba(0, 0, 0, 20%) 0 2px 1px -1px,
+    rgba(0, 0, 0, 14%) 0 1px 1px 0,
+    rgba(0, 0, 0, 12%) 0 1px 3px 0;
+  }
+
+  &:disabled::before {
+    background: rgba(var(--m3--on-surface--rgb), 12%);
+    box-shadow: none;
+  }
+
+  // state layer
+  &:focus-visible::after {
+    background: rgba(var(--m3--on-primary--rgb), var(--m3--opacity-on-focus));
+  }
+
+  &:hover::after {
+    background: rgba(var(--m3--on-primary--rgb), var(--m3--opacity-on-hover));
+  }
+
+  &:active::after {
+    background: rgba(var(--m3--on-primary--rgb), var(--m3--opacity-on-press));
+  }
+
+  &:disabled::after {
+    background: transparent;
+  }
+
+  // icon
+  & > #{$component-class}--icon {
+    position: relative;
+    height: 18px;
+    align-self: center;
+    color: var(--m3--on-primary);
+    font-size: 18px;
+    overflow: hidden;
+    transition: color 50ms var(--m3--easing-emphasized-accelerate);
+    z-index: 1;
+
+    &:first-child {
+      margin-inline-start: auto;
+      padding-inline-start: 16px;
+    }
+
+    &:last-child {
+      margin-inline-end: auto;
+      padding-inline-end: 16px;
+    }
+  }
+
+  &:disabled > #{$component-class}--icon {
+    color: rgba(var(--m3--on-surface--rgb), 38%)
+  }
+
+  // label
+  & > #{$component-class}--label {
+    @include typo.label-large();
+    display: -webkit-box;
+    position: relative;
+    align-self: center;
+    color: var(--m3--on-primary);
+    line-height: 40px;
+    overflow: hidden;
+    padding-inline: 8px;
+    text-align: center;
+    transition: color 50ms var(--m3--easing-emphasized-accelerate);
+    z-index: 1;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+
+    &:first-child {
+      margin-inline-start: auto;
+      padding-inline-start: 24px;
+    }
+
+    &:last-child {
+      margin-inline-end: auto;
+      padding-inline-end: 24px;
+    }
+  }
+
+  &:disabled > #{$component-class}--label {
+    color: rgba(var(--m3--on-surface--rgb), 38%);
+  }
+
+  // filled-tonal
+  // (filled-tonal) background
+  &#{$component-class}__filled-tonal::before {
+    background: var(--m3--secondary-container);
+  }
+
+  &#{$component-class}__filled-tonal:disabled::before {
+    background: rgba(var(--m3--on-surface--rgb), 12%);
+    box-shadow: none;
+  }
+
+  // (filled-tonal) state layer
+  &#{$component-class}__filled-tonal:focus-visible::after {
+    background: rgba(var(--m3--on-secondary-container--rgb), var(--m3--opacity-on-focus));
+  }
+
+  &#{$component-class}__filled-tonal:hover::after {
+    background: rgba(var(--m3--on-secondary-container--rgb), var(--m3--opacity-on-hover));
+  }
+
+  &#{$component-class}__filled-tonal:active::after {
+    background: rgba(var(--m3--on-secondary-container--rgb), var(--m3--opacity-on-press));
+  }
+
+  &#{$component-class}__filled-tonal:disabled::after {
+    background: transparent;
+  }
+
+  // (filled-tonal) icon
+  &#{$component-class}__filled-tonal > #{$component-class}--icon {
+    color: var(--m3--on-secondary-container);
+  }
+
+  &#{$component-class}__filled-tonal:disabled > #{$component-class}--icon {
+    color: rgba(var(--m3--on-surface--rgb), 38%)
+  }
+
+  // (filled-tonal) label
+  &#{$component-class}__filled-tonal > #{$component-class}--label {
+    color: var(--m3--on-secondary-container);
+  }
+
+  &#{$component-class}__filled-tonal:disabled > #{$component-class}--label {
+    color: rgba(var(--m3--on-surface--rgb), 38%)
+  }
+
+  // outlined
+  // (outlined) background
+  &#{$component-class}__outlined::before {
+    background: transparent;
+    outline: 1px solid var(--m3--outline);
+    outline-offset: -1px;
+  }
+
+  &#{$component-class}__outlined:hover::before {
+    box-shadow: none;
+  }
+
+  &#{$component-class}__outlined:disabled::before {
+    outline-color: rgba(var(--m3--on-surface--rgb), 12%);
+  }
+
+  // (outlined) state layer
+  &#{$component-class}__outlined:focus-visible::after {
+    background: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-focus));
+  }
+
+  &#{$component-class}__outlined:hover::after {
+    background: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-hover));
+  }
+
+  &#{$component-class}__outlined:active::after {
+    background: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-press));
+  }
+
+  &#{$component-class}__outlined:disabled::after {
+    background: transparent;
+  }
+
+  // (outlined) icon
+  &#{$component-class}__outlined > #{$component-class}--icon {
+    color: var(--m3--primary);
+  }
+
+  &#{$component-class}__outlined:disabled > #{$component-class}--icon {
+    color: rgba(var(--m3--on-surface--rgb), 38%)
+  }
+
+  // (outlined) label
+  &#{$component-class}__outlined > #{$component-class}--label {
+    color: var(--m3--primary);
+  }
+
+  &#{$component-class}__outlined:disabled > #{$component-class}--label {
+    color: rgba(var(--m3--on-surface--rgb), 38%);
+  }
+
+  // text
+  // (text) background
+  &#{$component-class}__text::before {
+    background: transparent;
+  }
+
+  &#{$component-class}__text:hover::before {
+    box-shadow: none;
+  }
+
+  // (text) state layer
+  &#{$component-class}__text:focus-visible::after {
+    background: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-focus));
+  }
+
+  &#{$component-class}__text:hover::after {
+    background: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-hover));
+  }
+
+  &#{$component-class}__text:active::after {
+    background: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-press));
+  }
+
+  &#{$component-class}__text:disabled::after {
+    background: transparent;
+  }
+
+  // (text) icon
+  &#{$component-class}__text > #{$component-class}--icon {
+    color: var(--m3--primary);
+
+    &:first-child {
+      padding-inline-start: 12px;
+    }
+
+    &:last-child {
+      padding-inline-end: 12px;
+    }
+  }
+
+  &#{$component-class}__text:disabled > #{$component-class}--icon {
+    color: rgba(var(--m3--on-surface--rgb), 38%);
+  }
+
+  // (text) label
+  &#{$component-class}__text > #{$component-class}--label {
+    color: var(--m3--primary);
+
+    &:first-child {
+      padding-inline-start: 16px;
+    }
+
+    &:last-child {
+      padding-inline-end: 16px;
+    }
+
+    &:only-child {
+      padding-inline: 12px;
+    }
+  }
+
+  &#{$component-class}__text:disabled > #{$component-class}--label {
+    color: rgba(var(--m3--on-surface--rgb), 38%);
+  }
+
+  // placeholders
+  &__filled-tonal, &__outlined, &__text {
+  }
+}
