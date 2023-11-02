@@ -1,0 +1,172 @@
+@use "../../../assets/styles/m3/typography";
+
+$component-name: "m3-text-field";
+$component-class: "." + $component-name;
+
+.#{$component-name} {
+  display: flex;
+  position: relative;
+  min-height: 56px;
+  height: 76px; // base height + supporting text
+  background: inherit;
+  box-sizing: border-box;
+
+  &::before, &::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 56px;
+    border-radius: var(--m3--shape-extra-small);
+    content: "";
+    z-index: 0;
+  }
+
+  &::before {
+  }
+
+  // foreground
+  &::after {
+    outline: 1px solid var(--m3--outline);
+    outline-offset: -1px;
+  }
+
+  &:hover::after {
+    outline-color: var(--m3--primary);
+    outline-offset: -2px;
+    outline-width: 2px;
+  }
+
+  &#{$component-class}__error::after {
+    outline-color: var(--m3--error);
+  }
+
+  &#{$component-class}__error:hover::after {
+    outline-color: var(--m3--on-error-container);
+  }
+
+  // icons
+  & > #{$component-class}--leading, & > #{$component-class}--trailing {
+    position: relative;
+    color: var(--m3--on-surface-variant);
+    font-size: 24px;
+    margin-block: 16px;
+    z-index: 2;
+  }
+
+  // icon - leading
+  & > #{$component-class}--leading {
+    margin-inline: 12px 0;
+  }
+
+  // icon - trailing
+  & > #{$component-class}--trailing {
+    margin-inline: auto 12px;
+  }
+
+  &#{$component-class}__error > #{$component-class}--trailing {
+    color: var(--m3--error);
+  }
+
+  &#{$component-class}__error:hover > #{$component-class}--trailing {
+    color: var(--m3--on-error-container);
+  }
+
+  // input
+  & > input {
+    @extend .m3-typo--body-large;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 56px;
+    appearance: none;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    caret-color: var(--m3--primary);
+    color: var(--m3--on-surface);
+    outline: none;
+    padding-block: 0;
+    padding-inline: 16px;
+    z-index: 1;
+
+    &::selection {
+      background: rgba(var(--m3--on-surface--rgb), var(--m3--opacity-on-drag));
+    }
+  }
+
+  & > #{$component-class}--leading ~ input {
+    padding-inline-start: 52px; // 12 + 24 + 16
+  }
+
+  & > #{$component-class}--trailing ~ input {
+    padding-inline-end: 52px; // 16 + 24 + 12
+  }
+
+  &#{$component-class}__error > input {
+    caret-color: var(--m3--error);
+  }
+
+  // label
+  & > #{$component-class}--label {
+    @extend .m3-typo--body-small;
+    display: -webkit-box;
+    position: absolute;
+    height: 16px; // based on .m3-typo--body-small 16px line-height
+    top: -8px; // based on .m3-typo--body-small 16px line-height
+    background: inherit;
+    color: var(--m3--on-surface-variant);
+    margin-inline: 12px;
+    overflow: hidden;
+    padding-inline: 4px;
+    transition: padding-left 200ms var(--m3--easing-emphasized), margin-left 200ms var(--m3--easing-emphasized), top 200ms var(--m3--easing-emphasized), line-height 200ms var(--m3--easing-emphasized), font-size 200ms var(--m3--easing-emphasized), background-color 200ms var(--m3--easing-emphasized);
+    user-select: none;
+    z-index: 1;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  &#{$component-class}__error > #{$component-class}--label {
+    color: var(--m3--error);
+  }
+
+  &#{$component-class}__error:hover > #{$component-class}--label {
+    color: var(--m3--on-error-container);
+  }
+
+  &#{$component-class}__unpopulated > #{$component-class}--label {
+    @extend .m3-typo--body-large;
+    top: 0;
+    height: 56px;
+    background: transparent;
+    line-height: 56px;
+  }
+
+  &#{$component-class}__unpopulated > #{$component-class}--leading ~ #{$component-class}--label {
+    margin-inline-start: 48px;
+  }
+
+  &#{$component-class}__unpopulated > #{$component-class}--trailing ~ #{$component-class}--label {
+    margin-inline-end: 48px;
+  }
+
+  // supporting text
+  & > #{$component-class}--support {
+    @extend .m3-typo--body-small;
+    position: absolute;
+    color: var(--m3--on-surface-variant);
+    margin-block: 56px 0;
+    margin-inline: 16px;
+    padding-block: 4px 0;
+  }
+
+  &#{$component-class}__error > #{$component-class}--support {
+    color: var(--m3--error);
+  }
+
+  // placeholders
+  &__error, &__unpopulated {
+  }
+}
