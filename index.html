@@ -108,17 +108,17 @@
   </div>
 </div>
 <script>
-    function toggleChildrenClass(parentId, className) {
-        const children = document.getElementById(parentId).children;
-        for (let i = 0; i < children.length; i++) {
-            children[i].classList.toggle(className);
-        }
+  function toggleChildrenClass(parentId, className) {
+    const children = document.getElementById(parentId).children;
+    for (let i = 0; i < children.length; i++) {
+      children[i].classList.toggle(className);
     }
+  }
 
-    function toggleSwitch() {
-        toggleChildrenClass("switches1", "m3-switch__selected");
-        toggleChildrenClass("switches2", "m3-switch__selected");
-    }
+  function toggleSwitch() {
+    toggleChildrenClass("switches1", "m3-switch__selected");
+    toggleChildrenClass("switches2", "m3-switch__selected");
+  }
 </script>
 </body>
 </html>

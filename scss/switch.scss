@@ -1,8 +1,8 @@
 // Angular 16
-$component-name: 'm3-switch';
-$component-class: '.' + $component-name;
+$component-name: "m3-switch";
+$component-class: "." + $component-name;
 
-button#{$component-class} {
+button.m3-switch {
   display: flex;
   position: relative;
   width: 52px;

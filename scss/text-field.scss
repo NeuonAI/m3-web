@@ -1,9 +1,9 @@
-@use "../../../assets/styles/m3/typography";
+@use "typography";
 
 $component-name: "m3-text-field";
 $component-class: "." + $component-name;
 
-.#{$component-name} {
+.m3-text-field {
   display: flex;
   position: relative;
   min-height: 56px;

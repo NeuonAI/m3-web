@@ -1,29 +1,76 @@
 <component name="ProjectCodeStyleConfiguration">
   <code_scheme name="Project" version="173">
+    <option name="LINE_SEPARATOR" value="&#13;&#10;"/>
+    <CssCodeStyleSettings>
+      <option name="HEX_COLOR_LOWER_CASE" value="true"/>
+      <option name="HEX_COLOR_LONG_FORMAT" value="true"/>
+      <option name="ENFORCE_QUOTES_ON_FORMAT" value="true"/>
+    </CssCodeStyleSettings>
+    <JSCodeStyleSettings version="0">
+      <option name="FORCE_SEMICOLON_STYLE" value="true"/>
+      <option name="FORCE_QUOTE_STYlE" value="true"/>
+      <option name="ENFORCE_TRAILING_COMMA" value="WhenMultiline"/>
+    </JSCodeStyleSettings>
+    <ScssCodeStyleSettings>
+      <option name="HEX_COLOR_LOWER_CASE" value="true"/>
+      <option name="HEX_COLOR_LONG_FORMAT" value="true"/>
+      <option name="ENFORCE_QUOTES_ON_FORMAT" value="true"/>
+    </ScssCodeStyleSettings>
+    <TypeScriptCodeStyleSettings version="0">
+      <option name="FORCE_SEMICOLON_STYLE" value="true"/>
+      <option name="PREFER_AS_TYPE_CAST" value="true"/>
+      <option name="FORCE_QUOTE_STYlE" value="true"/>
+      <option name="ENFORCE_TRAILING_COMMA" value="WhenMultiline"/>
+      <option name="IMPORT_SORT_MODULE_NAME" value="true"/>
+    </TypeScriptCodeStyleSettings>
+    <editorconfig>
+      <option name="ENABLED" value="false"/>
+    </editorconfig>
     <codeStyleSettings language="CSS">
       <indentOptions>
-        <option name="INDENT_SIZE" value="2" />
-        <option name="CONTINUATION_INDENT_SIZE" value="4" />
-        <option name="TAB_SIZE" value="2" />
+        <option name="INDENT_SIZE" value="2"/>
+        <option name="CONTINUATION_INDENT_SIZE" value="4"/>
+        <option name="TAB_SIZE" value="2"/>
       </indentOptions>
     </codeStyleSettings>
     <codeStyleSettings language="HTML">
       <indentOptions>
-        <option name="INDENT_SIZE" value="2" />
-        <option name="CONTINUATION_INDENT_SIZE" value="4" />
-        <option name="TAB_SIZE" value="2" />
+        <option name="INDENT_SIZE" value="2"/>
+        <option name="CONTINUATION_INDENT_SIZE" value="4"/>
+        <option name="TAB_SIZE" value="2"/>
       </indentOptions>
     </codeStyleSettings>
-    <codeStyleSettings language="Markdown">
+    <codeStyleSettings language="JSON">
       <indentOptions>
-        <option name="INDENT_SIZE" value="2" />
-        <option name="CONTINUATION_INDENT_SIZE" value="4" />
-        <option name="TAB_SIZE" value="2" />
+        <option name="CONTINUATION_INDENT_SIZE" value="4"/>
+        <option name="TAB_SIZE" value="2"/>
       </indentOptions>
     </codeStyleSettings>
-    <codeStyleSettings language="SASS">
+    <codeStyleSettings language="JavaScript">
       <indentOptions>
-        <option name="TAB_SIZE" value="2" />
+        <option name="INDENT_SIZE" value="2"/>
+        <option name="CONTINUATION_INDENT_SIZE" value="2"/>
+        <option name="TAB_SIZE" value="2"/>
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="SCSS">
+      <indentOptions>
+        <option name="CONTINUATION_INDENT_SIZE" value="4"/>
+        <option name="TAB_SIZE" value="2"/>
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="TypeScript">
+      <indentOptions>
+        <option name="INDENT_SIZE" value="2"/>
+        <option name="CONTINUATION_INDENT_SIZE" value="2"/>
+        <option name="TAB_SIZE" value="2"/>
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="XML">
+      <indentOptions>
+        <option name="INDENT_SIZE" value="2"/>
+        <option name="CONTINUATION_INDENT_SIZE" value="4"/>
+        <option name="TAB_SIZE" value="2"/>
       </indentOptions>
     </codeStyleSettings>
   </code_scheme>

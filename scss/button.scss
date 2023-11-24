@@ -1,13 +1,14 @@
 @use "typography" as typo;
 
-$component-name: 'm3-button';
-$component-class: '.' + $component-name;
+$component-name: "m3-button";
+$component-class: "." + $component-name;
 
-a.#{$component-name}:any-link,
-button.#{$component-name} {
+a.m3-button:any-link,
+button.m3-button {
   display: flex;
   position: relative;
   width: fit-content;
+  height: fit-content;
   min-width: 48px;
   min-height: 48px;
   appearance: none;
@@ -287,9 +288,5 @@ button.#{$component-name} {
 
   &#{$component-class}__text:disabled > #{$component-class}--label {
     color: rgba(var(--m3--on-surface--rgb), 38%);
-  }
-
-  // placeholders
-  &__filled-tonal, &__outlined, &__text {
   }
 }
