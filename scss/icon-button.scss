@@ -1,3 +1,5 @@
+// Version: 1.0.0
+// Support: a, button
 .m3-icon-button {
   display: flex;
   position: relative;
@@ -101,9 +103,77 @@
     color: rgba(var(--m3--on-surface--rgb), 38%);
   }
 
+  // container (filled)
+  &#{&}__filled::before {
+    background-color: var(--m3--surface-container-highest);
+  }
+
+  &#{&}__filled:disabled::before {
+    background-color: rgba(var(--m3--on-surface--rgb), 12%);
+  }
+
+  // state layer (filled)
+  &#{&}__filled-tonal:any-link:focus-visible::after,
+  &#{&}__filled:enabled:focus-visible::after {
+    background-color: rgba(var(--m3--on-surface-variant--rgb), var(--m3--opacity-on-focus));
+  }
+
+  &#{&}__filled:any-link:hover::after,
+  &#{&}__filled:enabled:hover::after {
+    background-color: rgba(var(--m3--on-surface-variant--rgb), var(--m3--opacity-on-hover));
+  }
+
+  &#{&}__filled:any-link:active::after,
+  &#{&}__filled:enabled:active::after {
+    background-color: rgba(var(--m3--on-surface-variant--rgb), var(--m3--opacity-on-press));
+  }
+
+  // icon (filled)
+  &#{&}__filled > &--icon {
+    color: var(--m3--on-surface-variant);
+  }
+
+  &#{&}__filled:disabled > &--icon {
+    color: rgba(var(--m3--on-surface-variant--rgb), 38%);
+  }
+
+  // container (filled, selected)
+  &#{&}__filled#{&}__selected::before {
+    background-color: var(--m3--primary);
+  }
+
+  &#{&}__filled#{&}__selected:disabled::before {
+    background-color: rgba(var(--m3--on-surface--rgb), 12%);
+  }
+
+  // state layer (filled, selected)
+  &#{&}__filled#{&}__selected:any-link:focus-visible::after,
+  &#{&}__filled#{&}__selected:enabled:focus-visible::after {
+    background-color: rgba(var(--m3--on-primary--rgb), var(--m3--opacity-on-focus));
+  }
+
+  &#{&}__filled#{&}__selected:any-link:hover::after,
+  &#{&}__filled#{&}__selected:enabled:hover::after {
+    background-color: rgba(var(--m3--on-primary--rgb), var(--m3--opacity-on-hover));
+  }
+
+  &#{&}__filled#{&}__selected:any-link:active::after,
+  &#{&}__filled#{&}__selected:enabled:active::after {
+    background-color: rgba(var(--m3--on-primary--rgb), var(--m3--opacity-on-press));
+  }
+
+  // icon (filled, selected)
+  &#{&}__filled#{&}__selected > &--icon {
+    color: var(--m3--on-primary);
+  }
+
+  &#{&}__filled#{&}__selected:disabled > &--icon {
+    color: rgba(var(--m3--on-surface--rgb), 38%);
+  }
+
   // container (filled-tonal)
   &#{&}__filled-tonal::before {
-    background-color: var(--m3--secondary-container);
+    background-color: var(--m3--surface-container-highest);
   }
 
   &#{&}__filled-tonal:disabled::before {
@@ -113,25 +183,59 @@
   // state layer (filled-tonal)
   &#{&}__filled-tonal:any-link:focus-visible::after,
   &#{&}__filled-tonal:enabled:focus-visible::after {
-    background-color: rgba(var(--m3--on-secondary-container--rgb), var(--m3--opacity-on-focus));
+    background-color: rgba(var(--m3--on-surface-variant--rgb), var(--m3--opacity-on-focus));
   }
 
   &#{&}__filled-tonal:any-link:hover::after,
   &#{&}__filled-tonal:enabled:hover::after {
-    background-color: rgba(var(--m3--on-secondary-container--rgb), var(--m3--opacity-on-hover));
+    background-color: rgba(var(--m3--on-surface-variant--rgb), var(--m3--opacity-on-hover));
   }
 
   &#{&}__filled-tonal:any-link:active::after,
   &#{&}__filled-tonal:enabled:active::after {
-    background-color: rgba(var(--m3--on-secondary-container--rgb), var(--m3--opacity-on-press));
+    background-color: rgba(var(--m3--on-surface-variant--rgb), var(--m3--opacity-on-press));
   }
 
   // icon (filled-tonal)
   &#{&}__filled-tonal > &--icon {
-    color: var(--m3--on-secondary-container);
+    color: var(--m3--on-surface-variant);
   }
 
   &#{&}__filled-tonal:disabled > &--icon {
+    color: rgba(var(--m3--on-surface-variant--rgb), 38%);
+  }
+
+  // container (filled-tonal, selected)
+  &#{&}__filled-tonal#{&}__selected::before {
+    background-color: var(--m3--secondary-container);
+  }
+
+  &#{&}__filled-tonal#{&}__selected:disabled::before {
+    background-color: rgba(var(--m3--on-surface--rgb), 12%);
+  }
+
+  // state layer (filled-tonal, selected)
+  &#{&}__filled-tonal#{&}__selected:any-link:focus-visible::after,
+  &#{&}__filled-tonal#{&}__selected:enabled:focus-visible::after {
+    background-color: rgba(var(--m3--on-secondary-container--rgb), var(--m3--opacity-on-focus));
+  }
+
+  &#{&}__filled-tonal#{&}__selected:any-link:hover::after,
+  &#{&}__filled-tonal#{&}__selected:enabled:hover::after {
+    background-color: rgba(var(--m3--on-secondary-container--rgb), var(--m3--opacity-on-hover));
+  }
+
+  &#{&}__filled-tonal#{&}__selected:any-link:active::after,
+  &#{&}__filled-tonal#{&}__selected:enabled:active::after {
+    background-color: rgba(var(--m3--on-secondary-container--rgb), var(--m3--opacity-on-press));
+  }
+
+  // icon (filled-tonal, selected)
+  &#{&}__filled-tonal#{&}__selected > &--icon {
+    color: var(--m3--on-secondary-container);
+  }
+
+  &#{&}__filled-tonal#{&}__selected:disabled > &--icon {
     color: rgba(var(--m3--on-surface--rgb), 38%);
   }
 
@@ -181,6 +285,6 @@
   }
 
   // placeholders
-  &__outlined, &__selected {
+  &__filled, &__filled-tonal, &__outlined, &__selected {
   }
 }
