@@ -1,259 +1,260 @@
-@use "typography" as typo;
-
-$component-name: "m3-button";
-$component-class: "." + $component-name;
-
-a.m3-button:any-link,
-button.m3-button {
+// Version: 1.0.0
+// Support: a, button
+.m3-button {
   display: flex;
   position: relative;
   width: fit-content;
   height: fit-content;
   min-width: 48px;
   min-height: 48px;
+  max-height: 48px;
+  align-items: center;
   appearance: none;
   background: transparent;
   border: none;
   box-sizing: border-box;
-  cursor: pointer;
-  outline: none;
+  justify-content: center;
   padding: 0;
   user-select: none;
-  text-decoration: none;
   -webkit-tap-highlight-color: transparent;
 
-  &:disabled {
-    cursor: default;
+  &:any-link, &:enabled {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: none;
   }
 
   &::before, &::after {
     display: block;
     position: absolute;
-    right: 0;
+    top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     height: 40px;
-    align-self: center;
     border-radius: 20px;
-    content: "";
-    transition: background-color 50ms var(--m3--easing-emphasized-accelerate);
+    content: attr(value);
+    margin-block: auto;
   }
 
-  // background
+  // container
   &::before {
-    background: var(--m3--primary);
-  }
-
-  &:hover::before {
-    box-shadow: rgba(0, 0, 0, 20%) 0 2px 1px -1px,
-    rgba(0, 0, 0, 14%) 0 1px 1px 0,
-    rgba(0, 0, 0, 12%) 0 1px 3px 0;
+    background-color: var(--m3--primary);
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+    transition: background-color 100ms var(--m3--easing-emphasized-accelerate),
+    outline-color 100ms var(--m3--easing-emphasized-accelerate);
   }
 
   &:disabled::before {
-    background: rgba(var(--m3--on-surface--rgb), 12%);
-    box-shadow: none;
+    background-color: rgba(var(--m3--on-surface--rgb), 12%);
   }
 
   // state layer
-  &:focus-visible::after {
-    background: rgba(var(--m3--on-primary--rgb), var(--m3--opacity-on-focus));
+  &::after {
+    transition: background-color 100ms var(--m3--easing-emphasized-accelerate);
   }
 
-  &:hover::after {
-    background: rgba(var(--m3--on-primary--rgb), var(--m3--opacity-on-hover));
+  &:any-link:focus-visible::after, &:enabled:focus-visible::after {
+    background-color: rgba(var(--m3--on-primary--rgb), var(--m3--opacity-on-focus));
   }
 
-  &:active::after {
-    background: rgba(var(--m3--on-primary--rgb), var(--m3--opacity-on-press));
+  &:any-link:hover::after, &:enabled:hover::after {
+    background-color: rgba(var(--m3--on-primary--rgb), var(--m3--opacity-on-hover));
+    box-shadow: rgba(0, 0, 0, 0.2) 0 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
   }
 
-  &:disabled::after {
-    background: transparent;
-  }
-
-  // icon
-  & > #{$component-class}--icon {
-    position: relative;
-    height: 18px;
-    align-self: center;
-    color: var(--m3--on-primary);
-    font-size: 18px;
-    overflow: hidden;
-    transition: color 50ms var(--m3--easing-emphasized-accelerate);
-    z-index: 1;
-
-    &:first-child {
-      margin-inline-start: auto;
-      padding-inline-start: 16px;
-    }
-
-    &:last-child {
-      margin-inline-end: auto;
-      padding-inline-end: 16px;
-    }
-  }
-
-  &:disabled > #{$component-class}--icon {
-    color: rgba(var(--m3--on-surface--rgb), 38%)
+  &:any-link:active::after, &:enabled:active::after {
+    background-color: rgba(var(--m3--on-primary--rgb), var(--m3--opacity-on-press));
   }
 
   // label
-  & > #{$component-class}--label {
-    @include typo.label-large();
+  & > &--label {
     display: -webkit-box;
     position: relative;
-    align-self: center;
     color: var(--m3--on-primary);
-    line-height: 40px;
+    font-family: Roboto, serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
     overflow: hidden;
     padding-inline: 8px;
-    text-align: center;
-    transition: color 50ms var(--m3--easing-emphasized-accelerate);
+    transition: color 100ms var(--m3--easing-emphasized-accelerate);
     z-index: 1;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
 
     &:first-child {
-      margin-inline-start: auto;
       padding-inline-start: 24px;
     }
 
     &:last-child {
-      margin-inline-end: auto;
       padding-inline-end: 24px;
     }
   }
 
-  &:disabled > #{$component-class}--label {
+  &:disabled > &--label {
     color: rgba(var(--m3--on-surface--rgb), 38%);
   }
 
-  // filled-tonal
-  // (filled-tonal) background
-  &#{$component-class}__filled-tonal::before {
-    background: var(--m3--secondary-container);
+  // icon
+  & > &--icon {
+    position: relative;
+    color: var(--m3--on-primary);
+    font-size: 18px;
+    transition: color 100ms var(--m3--easing-emphasized-accelerate);
+    z-index: 1;
+
+    &:first-child {
+      padding-inline-start: 16px;
+    }
+
+    &:last-child {
+      padding-inline-end: 16px;
+    }
   }
 
-  &#{$component-class}__filled-tonal:disabled::before {
-    background: rgba(var(--m3--on-surface--rgb), 12%);
+  &:disabled > &--icon {
+    color: rgba(var(--m3--on-surface--rgb), 38%);
+  }
+
+  // container (filled-tonal)
+  &#{&}__filled-tonal::before {
+    background-color: var(--m3--secondary-container);
+  }
+
+  &#{&}__filled-tonal:disabled::before {
+    background-color: rgba(var(--m3--on-surface--rgb), 12%);
+  }
+
+  // state layer (filled-tonal)
+  &#{&}__filled-tonal:any-link:focus-visible::after,
+  &#{&}__filled-tonal:enabled:focus-visible::after {
+    background-color: rgba(var(--m3--on-secondary-container--rgb), var(--m3--opacity-on-focus));
+  }
+
+  &#{&}__filled-tonal:any-link:hover::after,
+  &#{&}__filled-tonal:enabled:hover::after {
+    background-color: rgba(var(--m3--on-secondary-container--rgb), var(--m3--opacity-on-hover));
     box-shadow: none;
   }
 
-  // (filled-tonal) state layer
-  &#{$component-class}__filled-tonal:focus-visible::after {
-    background: rgba(var(--m3--on-secondary-container--rgb), var(--m3--opacity-on-focus));
+  &#{&}__filled-tonal:any-link:active::after,
+  &#{&}__filled-tonal:enabled:active::after {
+    background-color: rgba(var(--m3--on-secondary-container--rgb), var(--m3--opacity-on-press));
   }
 
-  &#{$component-class}__filled-tonal:hover::after {
-    background: rgba(var(--m3--on-secondary-container--rgb), var(--m3--opacity-on-hover));
-  }
-
-  &#{$component-class}__filled-tonal:active::after {
-    background: rgba(var(--m3--on-secondary-container--rgb), var(--m3--opacity-on-press));
-  }
-
-  &#{$component-class}__filled-tonal:disabled::after {
-    background: transparent;
-  }
-
-  // (filled-tonal) icon
-  &#{$component-class}__filled-tonal > #{$component-class}--icon {
+  // label (filled-tonal)
+  &#{&}__filled-tonal > &--label {
     color: var(--m3--on-secondary-container);
   }
 
-  &#{$component-class}__filled-tonal:disabled > #{$component-class}--icon {
-    color: rgba(var(--m3--on-surface--rgb), 38%)
+  &#{&}__filled-tonal:disabled > &--label {
+    color: rgba(var(--m3--on-surface--rgb), 38%);
   }
 
-  // (filled-tonal) label
-  &#{$component-class}__filled-tonal > #{$component-class}--label {
+  // icon (filled-tonal)
+  &#{&}__filled-tonal > &--icon {
     color: var(--m3--on-secondary-container);
   }
 
-  &#{$component-class}__filled-tonal:disabled > #{$component-class}--label {
-    color: rgba(var(--m3--on-surface--rgb), 38%)
+  &#{&}__filled-tonal:disabled > &--icon {
+    color: rgba(var(--m3--on-surface--rgb), 38%);
   }
 
-  // outlined
-  // (outlined) background
-  &#{$component-class}__outlined::before {
-    background: transparent;
-    outline: 1px solid var(--m3--outline);
-    outline-offset: -1px;
+  // container (outlined)
+  &#{&}__outlined::before {
+    background-color: transparent;
+    outline-color: var(--m3--outline);
   }
 
-  &#{$component-class}__outlined:hover::before {
-    box-shadow: none;
-  }
-
-  &#{$component-class}__outlined:disabled::before {
+  &#{&}__outlined:disabled::before {
     outline-color: rgba(var(--m3--on-surface--rgb), 12%);
   }
 
-  // (outlined) state layer
-  &#{$component-class}__outlined:focus-visible::after {
-    background: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-focus));
+  // state layer (outlined)
+  &#{&}__outlined:any-link:focus-visible::after,
+  &#{&}__outlined:enabled:focus-visible::after {
+    background-color: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-focus));
   }
 
-  &#{$component-class}__outlined:hover::after {
-    background: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-hover));
-  }
-
-  &#{$component-class}__outlined:active::after {
-    background: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-press));
-  }
-
-  &#{$component-class}__outlined:disabled::after {
-    background: transparent;
-  }
-
-  // (outlined) icon
-  &#{$component-class}__outlined > #{$component-class}--icon {
-    color: var(--m3--primary);
-  }
-
-  &#{$component-class}__outlined:disabled > #{$component-class}--icon {
-    color: rgba(var(--m3--on-surface--rgb), 38%)
-  }
-
-  // (outlined) label
-  &#{$component-class}__outlined > #{$component-class}--label {
-    color: var(--m3--primary);
-  }
-
-  &#{$component-class}__outlined:disabled > #{$component-class}--label {
-    color: rgba(var(--m3--on-surface--rgb), 38%);
-  }
-
-  // text
-  // (text) background
-  &#{$component-class}__text::before {
-    background: transparent;
-  }
-
-  &#{$component-class}__text:hover::before {
+  &#{&}__outlined:any-link:hover::after,
+  &#{&}__outlined:enabled:hover::after {
+    background-color: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-hover));
     box-shadow: none;
   }
 
-  // (text) state layer
-  &#{$component-class}__text:focus-visible::after {
-    background: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-focus));
+  &#{&}__outlined:any-link:active::after,
+  &#{&}__outlined:enabled:active::after {
+    background-color: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-press));
   }
 
-  &#{$component-class}__text:hover::after {
-    background: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-hover));
+  // label (outlined)
+  &#{&}__outlined > &--label {
+    color: var(--m3--primary);
   }
 
-  &#{$component-class}__text:active::after {
-    background: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-press));
+  &#{&}__outlined:disabled > &--label {
+    color: rgba(var(--m3--on-surface--rgb), 38%);
   }
 
-  &#{$component-class}__text:disabled::after {
-    background: transparent;
+  // icon (outlined)
+  &#{&}__outlined > &--icon {
+    color: var(--m3--primary);
   }
 
-  // (text) icon
-  &#{$component-class}__text > #{$component-class}--icon {
+  &#{&}__outlined:disabled > &--icon {
+    color: rgba(var(--m3--on-surface--rgb), 38%);
+  }
+
+  // container (text)
+  &#{&}__text::before {
+    background-color: transparent;
+  }
+
+  // state layer (text)
+  &#{&}__text:any-link:focus-visible::after,
+  &#{&}__text:enabled:focus-visible::after {
+    background-color: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-focus));
+  }
+
+  &#{&}__text:any-link:hover::after,
+  &#{&}__text:enabled:hover::after {
+    background-color: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-hover));
+    box-shadow: none;
+  }
+
+  &#{&}__text:any-link:active::after,
+  &#{&}__text:enabled:active::after {
+    background-color: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-press));
+  }
+
+  // label (text)
+  &#{&}__text > &--label {
+    color: var(--m3--primary);
+
+    &:only-child {
+      padding-inline: 12px;
+    }
+
+    &:not(:only-child):first-child {
+      padding-inline-start: 16px;
+    }
+
+    &:not(:only-child):last-child {
+      padding-inline-end: 16px;
+    }
+  }
+
+  &#{&}__text:disabled > &--label {
+    color: rgba(var(--m3--on-surface--rgb), 38%);
+  }
+
+  // icon (text)
+  &#{&}__text > &--icon {
     color: var(--m3--primary);
 
     &:first-child {
@@ -265,28 +266,11 @@ button.m3-button {
     }
   }
 
-  &#{$component-class}__text:disabled > #{$component-class}--icon {
+  &#{&}__text:disabled > &--icon {
     color: rgba(var(--m3--on-surface--rgb), 38%);
   }
 
-  // (text) label
-  &#{$component-class}__text > #{$component-class}--label {
-    color: var(--m3--primary);
-
-    &:first-child {
-      padding-inline-start: 16px;
-    }
-
-    &:last-child {
-      padding-inline-end: 16px;
-    }
-
-    &:only-child {
-      padding-inline: 12px;
-    }
-  }
-
-  &#{$component-class}__text:disabled > #{$component-class}--label {
-    color: rgba(var(--m3--on-surface--rgb), 38%);
+  // placeholders
+  &__filled-tonal, &__outlined, &__text {
   }
 }
