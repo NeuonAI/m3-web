@@ -188,6 +188,17 @@
     </button>
   </div>
 </div>
+<div class="section">
+  <span class="m3-typo--title-large">Radio button</span>
+  <div style="display: flex">
+    <input class="m3-radio-button" type="radio">
+    <input class="m3-radio-button" type="radio" checked>
+  </div>
+  <div style="display: flex">
+    <input class="m3-radio-button" type="radio" disabled>
+    <input class="m3-radio-button" type="radio" checked disabled>
+  </div>
+</div>
 <script>
   function toggleChildrenClass(parentId, className) {
     const children = document.getElementById(parentId).children;

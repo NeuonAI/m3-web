@@ -1,0 +1,90 @@
+// Version: 1.0.0
+// Support: m3-radio-button[type=radio]
+.m3-radio-button {
+  &[type=radio] {
+    display: flex;
+    position: relative;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    max-width: 48px;
+    min-height: 48px;
+    max-height: 48px;
+    appearance: none;
+    margin: 0;
+
+    &:enabled {
+      cursor: pointer;
+    }
+  }
+
+  &[type=radio]::before, &[type=radio]::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: attr(value);
+    margin: auto;
+  }
+
+  // state layer
+  &[type=radio]::before {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    transition: background-color 100ms var(--m3--easing-emphasized-decelerate);
+  }
+
+  &[type=radio]:enabled:focus-visible::before {
+    background-color: rgba(var(--m3--on-surface-variant--rgb), var(--m3--opacity-on-focus));
+  }
+
+  &[type=radio]:enabled:hover::before {
+    background-color: rgba(var(--m3--on-surface-variant--rgb), var(--m3--opacity-on-hover));
+  }
+
+  &[type=radio]:enabled:active::before {
+    background-color: rgba(var(--m3--on-surface-variant--rgb), var(--m3--opacity-on-press));
+  }
+
+  // icon
+  &[type=radio]::after {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    outline: 2px solid var(--m3--on-surface-variant);
+    outline-offset: 3px;
+    transition: background-color 100ms var(--m3--easing-emphasized-decelerate),
+    outline-color 100ms var(--m3--easing-emphasized-decelerate);
+  }
+
+  &[type=radio]:disabled::after {
+    outline-color: rgba(var(--m3--on-surface--rgb), 12%);
+  }
+
+  // state layer (selected)
+  &[type=radio]:enabled:checked:focus-visible::before {
+    background-color: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-focus));
+  }
+
+  &[type=radio]:enabled:checked:hover::before {
+    background-color: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-hover));
+  }
+
+  &[type=radio]:enabled:checked:active::before {
+    background-color: rgba(var(--m3--primary--rgb), var(--m3--opacity-on-press));
+  }
+
+  // icon (selected)
+  &[type=radio]:checked::after {
+    background-color: var(--m3--primary);
+    outline-color: var(--m3--primary);
+  }
+
+  &[type=radio]:checked:disabled::after {
+    background-color: rgba(var(--m3--on-surface--rgb), 12%);
+    outline-color: rgba(var(--m3--on-surface--rgb), 12%);
+  }
+}
