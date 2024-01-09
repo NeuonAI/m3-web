@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="user-guides"
+                 name="Material 3 — for web"
+                 start-page="overview.topic">
+
+    <toc-element topic="overview.topic"/>
+    <toc-element topic="components.topic">
+        <toc-element topic="get-started.topic"/>
+        <toc-element topic="buttons.topic"/>
+        <toc-element topic="Section-Starting-Page.topic"/>
+    </toc-element>
+</instance-profile>
