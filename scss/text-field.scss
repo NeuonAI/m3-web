@@ -27,6 +27,7 @@
     border-radius: var(--m3--shape-extra-small);
     outline: 1px solid var(--m3--outline);
     outline-offset: -1px;
+    pointer-events: none;
     transition: outline-color 100ms var(--m3--easing-emphasized);
     z-index: 1;
   }
@@ -99,6 +100,7 @@
     margin-inline: 16px;
     overflow: hidden;
     padding-inline: 4px;
+    pointer-events: none;
     transform: translateY(-50%);
     transition: margin-left 100ms var(--m3--easing-emphasized),
     margin-right 100ms var(--m3--easing-emphasized),
