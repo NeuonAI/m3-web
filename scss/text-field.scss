@@ -28,6 +28,7 @@
     outline: 1px solid var(--m3--outline);
     outline-offset: -1px;
     transition: outline-color 100ms var(--m3--easing-emphasized);
+    z-index: 1;
   }
 
   &:has(input:focus-visible)::before {
@@ -111,6 +112,7 @@
     line-height 100ms var(--m3--easing-emphasized),
     transform 100ms var(--m3--easing-emphasized);
     user-select: none;
+    z-index: 1;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
   }
