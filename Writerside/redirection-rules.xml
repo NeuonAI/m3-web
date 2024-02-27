@@ -22,4 +22,16 @@
     <description>Created after removal of "Starter" from Material 3 — for web</description>
     <accepts>get-started.html</accepts>
   </rule>
+  <rule id="d23ffe7">
+    <description>Created after removal of "Section Starting Page" from Material 3 — for web</description>
+    <accepts>Section-Starting-Page.html</accepts>
+  </rule>
+  <rule id="40356e0b">
+    <description>Created after removal of "Buttons" from Material 3 — for web</description>
+    <accepts>buttons.html</accepts>
+  </rule>
+  <rule id="8e0fa7d">
+    <description>Created after removal of "Get started" from Material 3 — for web</description>
+    <accepts>get-started.html</accepts>
+  </rule>
 </rules>

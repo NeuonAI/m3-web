@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+    SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Dialog" id="dialog">
+
+  <p>
+    Based on <a href="https://m3.material.io/components/dialogs/specs">Material 3 dialog specifications</a>
+  </p>
+
+  <chapter title="Writing dialog">
+    <tabs>
+      <tab title="HTML template">
+        <code-block lang="html">
+          <![CDATA[
+    <div class="m3 m3-dialog-surface"
+      [ngClass]="theme.colorSchemeBasedClassList()">
+      <h1 class="m3-dialog--title">Delete item?</h1>
+      <p class="m3-dialog--support-text">
+        You'll no longer have access to the item
+      </p>
+      <div class="m3-dialog--actions">
+        <button class="m3-button m3-button__text" matDialogClose>
+          <span class="m3-button--label">Cancel</span>
+        </button>
+        <button class="m3-button m3-button__text" (click)="next()">
+          <span class="m3-button--label">Next</span>
+        </button>
+      </div>
+    </div>
+    ]]>
+        </code-block>
+      </tab>
+      <tab title="TypeScript class">
+        <code-block lang="typescript">
+          <![CDATA[
+          export class DeleteDialogComponent {
+            public static async launch(dialog: MatDialog): Promise<boolean> {
+              const ref = dialog.open(DeleteDialogComponent);
+              const response = await firstValueFrom(ref.afterClosed());
+              return response === true;
+            }
+
+            constructor(public theme: ThemeService) {
+            }
+          }
+          ]]>
+        </code-block>
+      </tab>
+    </tabs>
+  </chapter>
+
+  <chapter title="Using dialog">
+    <code-block lang="typescript">
+      constructor(private dialog: MatDialog) {
+      }
+
+      public async launchDeleteDialog() {
+      await DialogComponent.launch(this.dialog);
+      }
+    </code-block>
+  </chapter>
+
+  <chapter title="Specify dialog options">
+    <p>
+      Inject the default dialog options at the top-level module.
+      This is done only <b>once</b>.
+    </p>
+
+    <code-block lang="typescript">
+      <![CDATA[
+      @NgModule({
+        providers: [
+          {
+            provide: MAT_DIALOG_DEFAULT_OPTIONS,
+            useValue: {
+              panelClass: "m3-dialog",
+              autoFocus: "dialog",
+            },
+          },
+        ],
+      })
+      export class AppModule {
+      }
+      ]]>
+    </code-block>
+
+    <chapter title="Fullscreen">
+      <code-block>
+        <![CDATA[
+          const ref = dialog.open(
+            DeleteDialogComponent,
+            {
+              panelClass: ["m3-dialog", "m3-dialog__fill"],
+              autoFocus: "dialog",
+            },
+          );
+        ]]>
+      </code-block>
+    </chapter>
+  </chapter>
+</topic>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+    SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Switch" id="switch" help-id="M3-Switch">
+
+  <p>
+    Based on <a href="https://m3.material.io/components/switch/specs">Material 3 switch specifications</a>
+  </p>
+
+  <tabs>
+    <tab title="Basic usage">
+      <code-block lang="html">
+        <![CDATA[
+        <button class="m3-switch">
+          <span class="m3-switch--handle"></span>
+        </button>
+        ]]>
+      </code-block>
+    </tab>
+    <tab title="With icon">
+      <snippet id="with-icon">
+        <code-block lang="html">
+          <![CDATA[
+          <button class="m3-switch">
+            <span class="m3-switch--handle"></span>
+            <span class="m3-switch--icon m3-sym">check</span>
+          </button>
+          ]]>
+        </code-block>
+      </snippet>
+    </tab>
+    <tab title="With persistent icon">
+      <p>
+        To always show icon regardless of the state, add
+        <code>m3-switch__persistent-icon</code> modifier class.
+      </p>
+      <code-block lang="html">
+        <![CDATA[
+        <button class="m3-switch m3-switch__persistent-icon">
+          <span class="m3-switch--handle"></span>
+          <span class="m3-switch--icon m3-sym">check</span>
+        </button>
+        ]]>
+      </code-block>
+    </tab>
+  </tabs>
+</topic>

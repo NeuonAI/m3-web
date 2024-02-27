@@ -1,0 +1,144 @@
+// Version: 1.0.0
+.m3-dialog {
+  &.mat-mdc-dialog-panel.cdk-overlay-pane {
+    width: 100%;
+    min-width: 280px;
+    max-width: min(560px, calc(100vw - 48px));
+    max-height: calc(100vh - 48px);
+  }
+
+  &#{&}__fill.mat-mdc-dialog-panel.cdk-overlay-pane {
+    width: 100vw;
+    height: 100vh;
+    min-width: unset;
+    max-width: unset;
+    min-height: unset;
+    max-height: unset;
+  }
+
+  & > .mdc-dialog {
+    & > .mdc-dialog__container {
+      transition-duration: 400ms;
+      transition-timing-function: var(--m3--easing-emphasized-decelerate);
+
+      & > .mdc-dialog__surface {
+        background: transparent; // removes background provided by MDC
+        border-radius: 0; // removes border-radius provided by MDC
+        box-shadow: none; // removes background shadow provided by MDC
+      }
+    }
+  }
+
+  & &-surface {
+    display: flex;
+    background: var(--m3--surface-container-high);
+    border-radius: var(--m3--shape-extra-large);
+    color: var(--m3--on-surface);
+    flex-direction: column;
+    overflow: hidden auto;
+  }
+
+  &#{&}__fill &-surface {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  & &--title {
+    color: var(--m3--on-surface);
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    margin-block: 0;
+    padding-block: 4px;
+    padding-inline: 24px;
+
+    &:first-child {
+      padding-block-start: 24px;
+    }
+
+    &:last-child {
+      padding-block-end: 24px;
+    }
+  }
+
+  & &--support-text,
+  & &--supporting {
+    color: var(--m3--on-surface-variant);
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-block: 0;
+    padding-block: 12px 4px;
+    padding-inline: 24px;
+
+    &:first-child {
+      padding-block-start: 24px;
+    }
+
+    &:last-child {
+      padding-block-end: 24px;
+    }
+  }
+
+  & &--actions {
+    display: flex;
+    gap: 0 8px;
+    justify-content: flex-end;
+    padding-block: 16px 0;
+    padding-inline: 24px;
+
+    &:first-child {
+      padding-block-start: 24px;
+    }
+
+    &:last-child {
+      padding-block-end: 24px;
+    }
+  }
+
+  // placeholders
+  &__filled-tonal, &__outlined, &__text {
+  }
+}
+
+.m3-dialog-header-actions {
+  display: flex;
+  flex-flow: row;
+  gap: 8px;
+  margin-inline: 0 16px;
+}
+
+.m3-dialog-header {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+
+  & > .m3-dialog-close-icon {
+    margin-inline: 4px;
+  }
+
+  & > .m3-dialog-headline {
+    color: var(--m3--on-surface);
+    flex: 1;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    margin-block: 0;
+    padding-inline-end: 16px;
+
+    &:first-child {
+      padding-inline-start: 16px;
+    }
+  }
+}
+
+.m3-dialog-content {
+  display: flex;
+  position: relative;
+  flex-flow: column;
+  padding-inline: 24px;
+}

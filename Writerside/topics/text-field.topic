@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+    SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Text Field" id="text-field" help-id="M3-Text-Field">
+  <tldr>
+    <p>Supported HTML elements</p>
+    <p><code>input</code></p>
+  </tldr>
+
+  <p>
+    Based on <a href="https://m3.material.io/components/text-fields/specs">Material 3 text field specifications</a>
+  </p>
+
+  <code-block lang="html">
+    <![CDATA[
+    <div class="m3-text-field">
+      <label class="m3-text-field--label">Label</label>
+      <input>
+    </div>
+    ]]>
+  </code-block>
+
+  <warning><code>input</code> element must be the last child</warning>
+
+  <tip>Use at most 1 leading element, the same applies for trailing element</tip>
+
+  <chapter title="Adding label">
+    <p>
+      To enable input label, add a child element <code>label</code> with
+      <code>m3-text-field--label</code> in its class list.
+    </p>
+
+    <code-block lang="html">
+      <![CDATA[
+      <div class="m3-text-field">
+        <label class="m3-text-field--label">Label</label>
+        <input>
+      </div>
+      ]]>
+    </code-block>
+
+    <chapter title="Unpopulated state">
+      <p>
+        Label is anchored to the top of its container for convenience by
+        default. To set the text field to its unpopulated state, add
+        <code>m3-text-field__unpopulated</code> CSS modifier to the
+        container class list. The transition would automatically animate.
+      </p>
+
+      <code-block lang="html">
+        <![CDATA[
+        <div class="m3-text-field m3-text-field__unpopulated">
+          <label class="m3-text-field--label">Label</label>
+          <input>
+        </div>
+        ]]>
+      </code-block>
+    </chapter>
+  </chapter>
+
+  <chapter title="Leading and trailing icons">
+    <p>
+      Add a child element with <code>m3-text-field--leading</code>
+      or <code>m3-text-field--trailing</code> in its class list.
+    </p>
+
+    <tabs>
+      <tab title="Icons">
+        <code-block lang="html">
+          <![CDATA[
+          <div class="m3-text-field">
+            <span class="m3-text-field--leading m3-sym">icon_name</span>
+            <span class="m3-text-field--trailing m3-sym">icon_name</span>
+            <input>
+          </div>
+          ]]>
+        </code-block>
+      </tab>
+      <tab title="With Icon Button">
+        <p>
+          It works for Icon Buttons too!
+        </p>
+
+        <code-block lang="html">
+          <![CDATA[
+          <div class="m3-text-field">
+            <span class="m3-text-field--leading m3-sym">icon_name</span>
+            <button class="m3-text-field--trailing m3-icon-button">
+              <span class="m3-icon-button--icon m3-sym">icon_name</span>
+            </button>
+            <input>
+          </div>
+          ]]>
+        </code-block>
+      </tab>
+    </tabs>
+  </chapter>
+</topic>

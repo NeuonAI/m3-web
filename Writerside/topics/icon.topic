@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+    SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Icon" id="icon" help-id="M3-Icon">
+
+  <p>
+    Based on <a href="https://fonts.google.com/icon">Material Symbols</a>.
+  </p>
+  <code-block lang="html">
+    <![CDATA[
+    <span class="m3-icon">icon_name</span>
+    ]]>
+  </code-block>
+  <table>
+    <tr>
+      <td>Style</td>
+      <td>CSS Modifier</td>
+    </tr>
+    <tr>
+      <td>Rounded (Default)</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Outlined</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Sharp</td>
+      <td>-</td>
+    </tr>
+  </table>
+  <chapter title="Using icons on components">
+    <p>I tell you how</p>
+    <chapter title="Button">
+      <include from="switch.topic" element-id="with-icon"/>
+    </chapter>
+    <chapter title="Switch">
+      <include from="switch.topic" element-id="with-icon"/>
+    </chapter>
+  </chapter>
+</topic>

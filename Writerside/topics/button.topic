@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+    SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Button" id="button" help-id="M3-Button">
+  <tldr>
+    <p>Supported HTML elements</p>
+    <p><code>a</code>, <code>button</code></p>
+  </tldr>
+
+  <p>
+    Based on <a href="https://m3.material.io/components/buttons/specs">Material 3 button specifications</a>
+  </p>
+
+  <code-block lang="html">
+    <![CDATA[
+    <button class="m3-button">
+      <span class="m3-button--label">Label</span>
+    </button>
+    ]]>
+  </code-block>
+
+  <note>For hyperlinks, use <code>&lt;a&gt;</code> instead</note>
+  <table>
+    <tr>
+      <td>Type</td>
+      <td>CSS Modifier</td>
+    </tr>
+    <tr>
+      <td>Filled (Default)</td>
+      <td>Unavailable</td>
+    </tr>
+    <tr>
+      <td>Filled tonal</td>
+      <td><code>m3-button__filled-tonal</code></td>
+    </tr>
+    <tr>
+      <td>Outlined</td>
+      <td><code>m3-button__outlined</code></td>
+    </tr>
+    <tr>
+      <td>Text</td>
+      <td><code>m3-button__text</code></td>
+    </tr>
+  </table>
+  <chapter title="Using icons">
+    <p>Button supports both leading and trailing icons.</p>
+    <snippet id="with-icon">
+      <code-block>
+        <![CDATA[
+        <button>
+          <span class="m3-button--icon m3-sym">leading</span>
+          <span class="m3-button--label">Label</span>
+          <span class="m3-button--icon m3-sym">trailing</span>
+        </button>
+        ]]>
+      </code-block>
+    </snippet>
+    <note>
+      <p>First <code>m3-sym</code> is treated as the leading icon</p>
+      <p>Last <code>m3-sym</code> is treated as the trailing icon</p>
+    </note>
+    <warning>
+      <p>Avoid using more than two <code>m3-sym</code> in a button</p>
+    </warning>
+  </chapter>
+</topic>

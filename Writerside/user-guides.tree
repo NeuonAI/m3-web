@@ -8,8 +8,10 @@
 
     <toc-element topic="overview.topic"/>
     <toc-element topic="components.topic">
-        <toc-element topic="get-started.topic"/>
-        <toc-element topic="buttons.topic"/>
-        <toc-element topic="Section-Starting-Page.topic"/>
+        <toc-element topic="button.topic"/>
+        <toc-element topic="dialog.topic"/>
+        <toc-element topic="icon.topic"/>
+        <toc-element topic="switch.topic"/>
+        <toc-element topic="text-field.topic"/>
     </toc-element>
 </instance-profile>
