@@ -11,7 +11,7 @@ pipeline {
     stage('Run Docker Container') {
       steps {
         script {
-            sh '''
+            sh """
 docker run --rm -v /var/lib/jenkins/workspace/${GIT_REPO}_${env.BRANCH_NAME}:/github/workspace registry.jetbrains.team/p/writerside/builder/writerside-builder:${WRITERSIDE_BUILD} /bin/bash -c '
 export DISPLAY=:99
 Xvfb :99 &
@@ -25,7 +25,7 @@ else
   ls -la /github/workspace/artifacts/
 fi
 '
-'''
+"""
 
         }
       }
