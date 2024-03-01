@@ -43,10 +43,4 @@ fi
     }
 
   }
-
-  post {
-      always {
-          discordSend enableArtifactsList: true, showChangeset: true, link: 'http://192.168.1.107/m3-web', title: 'M3 Web Document', webhookURL: env.DISCORD_WEBHOOK, result: currentBuild.currentResult
-      }
-  }
 }
