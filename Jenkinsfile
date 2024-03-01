@@ -2,7 +2,7 @@ pipeline {
   agent any
   environment {
     GIT_REPO = 'm3-web'
-    GIT_BRANCH = 'jenkins'
+    GIT_BRANCH = env.BRANCH_NAME
     WRITERSIDE_BUILD = '233.14389'
     WRITERSIDE_APP = 'Writerside/user-guides'
     WRITERSIDE_MODULE = 'USER-GUIDES2'
