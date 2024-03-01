@@ -12,7 +12,7 @@ pipeline {
       steps {
         script {
             sh """
-docker run --rm -v /var/lib/jenkins/workspace/${GIT_REPO}_${env.BRANCH_NAME}:/github/workspace registry.jetbrains.team/p/writerside/builder/writerside-builder:${WRITERSIDE_BUILD} /bin/bash -c '
+docker run --rm -v /var/lib/jenkins/workspace/\${GIT_REPO}_\${env.BRANCH_NAME}:/github/workspace registry.jetbrains.team/p/writerside/builder/writerside-builder:\${WRITERSIDE_BUILD} /bin/bash -c '
 export DISPLAY=:99
 Xvfb :99 &
 /opt/builder/bin/idea.sh helpbuilderinspect -source-dir /github/workspace/ -product Writerside/user-guides --runner github -output-dir /github/workspace/artifacts/ || true
