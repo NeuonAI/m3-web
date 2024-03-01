@@ -15,9 +15,9 @@ pipeline {
 docker run --rm -v /var/lib/jenkins/workspace/${GIT_REPO}_${env.BRANCH_NAME}:/github/workspace registry.jetbrains.team/p/writerside/builder/writerside-builder:${WRITERSIDE_BUILD} /bin/bash -c '
     export DISPLAY=:99
     Xvfb :99 &
-    /opt/builder/bin/idea.sh helpbuilderinspect -source-dir /github/workspace/ -product Writerside/user-guides --runner github -output-dir /github/workspace/artifacts/ || true
+    /opt/builder/bin/idea.sh helpbuilderinspect -source-dir /github/workspace/ -product ${WRITERSIDE_APP} --runner github -output-dir /github/workspace/artifacts/ || true
     echo "Test existing artifacts"
-    test -e /github/workspace/artifacts/webHelpUSER-GUIDES2-all.zip && echo webHelpUSER-GUIDES2-all.zip exists
+    test -e /github/workspace/artifacts/webHelp${WRITERSIDE_MODULE}-all.zip && echo webHelp${WRITERSIDE_MODULE}-all.zip exists
     if [ -z "\$(ls -A /github/workspace/artifacts/ 2>/dev/null)" ]; then
       echo "Artifacts not found" && false
     else
